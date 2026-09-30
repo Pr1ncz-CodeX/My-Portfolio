@@ -25,7 +25,7 @@ const revealOnScroll = () => {
 };
 
 window.addEventListener('scroll', revealOnScroll);
-revealOnScroll(); // Run once on page load
+revealOnScroll();
 
 // 3. Live GitHub Repository Stats Fetcher
 async function fetchGitHubStats() {
