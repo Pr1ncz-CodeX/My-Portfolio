@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+}
+
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e293b;
+    border-radius: 8px;
+}
+
+.project-card {
+    background-color: #334155;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
