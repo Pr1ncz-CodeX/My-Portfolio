@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- Ambient Glow Background Canvas -->
+    <!-- Ambient Glow Background -->
     <div class="ambient-glow glow-1"></div>
     <div class="ambient-glow glow-2"></div>
 
@@ -23,20 +23,27 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+        <!-- Theme Toggle Switcher -->
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+        </button>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero">
-        <div class="hero-content">
+        <div class="hero-content reveal">
             <div class="badge-pill"><i class="fa-solid fa-sparkles"></i> Available for Developer & QA Roles</div>
             <h1 class="hero-title">Building Software with <span class="gradient-text">Precision & Vision</span></h1>
             <p class="hero-sub">Final-year Computer Science undergraduate specializing in Java, Web Engineering, and Selenium QA Automation.</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn primary-btn">Explore Projects <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                <!-- Direct Resume Download Button -->
+                <a href="Prince_Resume_A4_Optimized.pdf" download="Prince_Samuvel_Resume.pdf" class="btn secondary-btn">
+                    <i class="fa-solid fa-download"></i> Download CV
+                </a>
             </div>
         </div>
-        <div class="hero-visual">
+        <div class="hero-visual reveal">
             <div class="card-3d glass-card floating">
                 <div class="code-preview">
                     <div class="code-header">
@@ -58,16 +65,16 @@
 
     <!-- About Section -->
     <section id="about" class="section">
-        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <h2 class="section-title reveal">About <span class="gradient-text">Me</span></h2>
         <div class="about-grid">
-            <div class="card-3d glass-card">
+            <div class="card-3d glass-card reveal">
                 <i class="fa-solid fa-graduation-cap icon"></i>
                 <h3>Education</h3>
                 <p class="card-headline">B.Sc. Computer Science</p>
                 <p class="card-sub">St. John's College of Arts and Science</p>
                 <span class="date-badge">2024 - 2027</span>
             </div>
-            <div class="card-3d glass-card">
+            <div class="card-3d glass-card reveal">
                 <i class="fa-solid fa-certificate icon"></i>
                 <h3>Certifications</h3>
                 <p class="card-headline">OOP Fundamentals</p>
@@ -80,9 +87,9 @@
 
     <!-- Skills Section -->
     <section id="skills" class="section">
-        <h2 class="section-title">Technical <span class="gradient-text">Stack</span></h2>
+        <h2 class="section-title reveal">Technical <span class="gradient-text">Stack</span></h2>
         <div class="skills-grid">
-            <div class="card-3d glass-card">
+            <div class="card-3d glass-card reveal">
                 <h3><i class="fa-solid fa-code"></i> Languages & Core</h3>
                 <div class="tags">
                     <span>Java</span>
@@ -94,7 +101,7 @@
                     <span>SDLC</span>
                 </div>
             </div>
-            <div class="card-3d glass-card">
+            <div class="card-3d glass-card reveal">
                 <h3><i class="fa-solid fa-bug"></i> Testing & QA</h3>
                 <div class="tags">
                     <span>Selenium WebDriver</span>
@@ -104,7 +111,7 @@
                     <span>Cross-Browser Testing</span>
                 </div>
             </div>
-            <div class="card-3d glass-card">
+            <div class="card-3d glass-card reveal">
                 <h3><i class="fa-solid fa-database"></i> Databases & Tools</h3>
                 <div class="tags">
                     <span>MySQL</span>
@@ -120,9 +127,9 @@
 
     <!-- Experience Section -->
     <section id="experience" class="section">
-        <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+        <h2 class="section-title reveal">Work <span class="gradient-text">Experience</span></h2>
         <div class="timeline">
-            <div class="card-3d glass-card timeline-card">
+            <div class="card-3d glass-card timeline-card reveal">
                 <div class="timeline-header">
                     <div>
                         <h3>Software Testing Intern</h3>
@@ -142,10 +149,19 @@
 
     <!-- Projects Section -->
     <section id="projects" class="section">
-        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-        <div class="projects-grid">
+        <h2 class="section-title reveal">Featured <span class="gradient-text">Projects</span></h2>
+        
+        <!-- Live GitHub Stats Banner -->
+        <div class="github-stats-card glass-card reveal">
+            <i class="fa-brands fa-github github-icon"></i>
+            <div>
+                <h3>GitHub Repository Stats</h3>
+                <p id="github-repo-status">Fetching live updates from @Pr1ncz-CodeX...</p>
+            </div>
+        </div>
 
-            <div class="card-3d glass-card project-card">
+        <div class="projects-grid">
+            <div class="card-3d glass-card project-card reveal">
                 <div class="project-header">
                     <div class="icon-box"><i class="fa-solid fa-network-wired"></i></div>
                     <span class="project-category">Web Engineering</span>
@@ -160,7 +176,7 @@
                 </div>
             </div>
 
-            <div class="card-3d glass-card project-card">
+            <div class="card-3d glass-card project-card reveal">
                 <div class="project-header">
                     <div class="icon-box"><i class="fa-solid fa-gamepad"></i></div>
                     <span class="project-category">Web Platform</span>
@@ -175,7 +191,7 @@
                 </div>
             </div>
 
-            <div class="card-3d glass-card project-card">
+            <div class="card-3d glass-card project-card reveal">
                 <div class="project-header">
                     <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
                     <span class="project-category">AI / Systems</span>
@@ -189,36 +205,54 @@
                     <span>Edge-TTS</span>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
-        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
-        <p class="contact-sub">Interested in collaborating or hiring? Reach out directly through any of these channels.</p>
-        <div class="contact-grid">
-            <a href="mailto:racerprince4533@gmail.com" class="card-3d glass-card contact-card">
-                <i class="fa-solid fa-envelope contact-icon"></i>
-                <div>
-                    <span class="contact-label">Email</span>
-                    <span class="contact-value">racerprince4533@gmail.com</span>
+        <h2 class="section-title reveal">Get In <span class="gradient-text">Touch</span></h2>
+        <p class="contact-sub reveal">Interested in collaborating or hiring? Send me a message directly!</p>
+        
+        <div class="contact-layout">
+            <!-- Contact Info Cards -->
+            <div class="contact-info">
+                <a href="mailto:racerprince4533@gmail.com" class="card-3d glass-card contact-card reveal">
+                    <i class="fa-solid fa-envelope contact-icon"></i>
+                    <div>
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">racerprince4533@gmail.com</span>
+                    </div>
+                </a>
+                <a href="tel:+919566737688" class="card-3d glass-card contact-card reveal">
+                    <i class="fa-solid fa-phone contact-icon"></i>
+                    <div>
+                        <span class="contact-label">Phone</span>
+                        <span class="contact-value">+91 9566737688</span>
+                    </div>
+                </a>
+                <a href="https://linkedin.com/in/prince-samuvel-7841a02b0" target="_blank" class="card-3d glass-card contact-card reveal">
+                    <i class="fa-brands fa-linkedin contact-icon"></i>
+                    <div>
+                        <span class="contact-label">LinkedIn</span>
+                        <span class="contact-value">Prince Samuvel</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Working Contact Form -->
+            <form action="https://formspree.io/f/xvgzorqy" method="POST" class="glass-card contact-form reveal">
+                <h3>Send a Message</h3>
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
-            </a>
-            <a href="tel:+919566737688" class="card-3d glass-card contact-card">
-                <i class="fa-solid fa-phone contact-icon"></i>
-                <div>
-                    <span class="contact-label">Phone</span>
-                    <span class="contact-value">+91 9566737688</span>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
-            </a>
-            <a href="https://linkedin.com/in/prince-samuvel-7841a02b0" target="_blank" class="card-3d glass-card contact-card">
-                <i class="fa-brands fa-linkedin contact-icon"></i>
-                <div>
-                    <span class="contact-label">LinkedIn</span>
-                    <span class="contact-value">Prince Samuvel</span>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                 </div>
-            </a>
+                <button type="submit" class="btn primary-btn full-width">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+            </form>
         </div>
     </section>
 
@@ -226,5 +260,6 @@
         <p>&copy; 2026 A. Prince Samuvel. Crafted with Modern Web Standards.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
