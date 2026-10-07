@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A. Prince Samuvel // Software Engineer & QA Specialist</title>
 
+    <!-- Custom Developer Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2305070f'/><text x='50%' y='68%' font-family='Consolas, monospace' font-weight='bold' font-size='55' fill='%2300f0ff' text-anchor='middle'>P</text></svg>">
+
     <!-- SEO & Social Meta Tags -->
     <meta name="title" content="A. Prince Samuvel // Software Engineer & QA Specialist">
     <meta name="description" content="Cyberpunk Tech Portfolio of A. Prince Samuvel — Specializing in Java, Web Engineering, WebRTC P2P, and Selenium QA Automation.">
@@ -241,18 +244,31 @@
         </div>
     </section>
 
-    <!-- Architecture Modals -->
+    <!-- Architecture Modals with Dynamic Visual Previews -->
     <div id="modal-p2p" class="modal-overlay">
         <div class="cyber-card modal-content">
             <button class="modal-close">&times;</button>
-            <h3>P2P FILE TRANSFER ARCHITECTURE</h3>
+            <h3>P2P FILE TRANSFER // ARCHITECTURE & UI</h3>
             <div class="modal-body">
+                <div class="visual-preview-frame">
+                    <div class="preview-header">
+                        <span class="preview-tag">// P2P_WEBRTC_DATACHANNEL_FLOW</span>
+                    </div>
+                    <div class="preview-canvas p2p-canvas">
+                        <div class="node-box"><i class="fa-solid fa-desktop"></i><span>PEER A</span></div>
+                        <div class="connection-line"><span class="data-pulse"></span></div>
+                        <div class="server-node"><i class="fa-solid fa-server"></i><span>FASTAPI SIGNALS</span></div>
+                        <div class="connection-line"><span class="data-pulse"></span></div>
+                        <div class="node-box"><i class="fa-solid fa-laptop"></i><span>PEER B</span></div>
+                    </div>
+                </div>
+
                 <p><strong>Transfer Protocol:</strong> Peer-to-Peer Direct Transfer via WebRTC</p>
                 <div class="architecture-flow">
                     <div class="flow-step">&gt; Step 1: Client A connects to FastAPI WebSocket Signaling Server</div>
                     <div class="flow-step">&gt; Step 2: WebRTC Offer & SDP Handshake exchanged with Client B</div>
                     <div class="flow-step">&gt; Step 3: Direct WebRTC DataChannel established between Peers</div>
-                    <div class="flow-step">&gt; Step 4: File sliced into 16KB ArrayBuffer chunks & transmitted without server storage</div>
+                    <div class="flow-step">&gt; Step 4: File sliced into 16KB ArrayBuffer chunks & transmitted directly</div>
                 </div>
                 <p class="neon-green"><strong>Engineering Advantage:</strong> Zero server bandwidth consumption during file transmission.</p>
             </div>
@@ -262,8 +278,19 @@
     <div id="modal-vanguard" class="modal-overlay">
         <div class="cyber-card modal-content">
             <button class="modal-close">&times;</button>
-            <h3>VANGUARD ARENA SYSTEM WORKFLOW</h3>
+            <h3>VANGUARD ARENA // BRACKET ENGINE MOCKUP</h3>
             <div class="modal-body">
+                <div class="visual-preview-frame">
+                    <div class="preview-header">
+                        <span class="preview-tag">// ESPORTS_TOURNAMENT_ENGINE_UI</span>
+                    </div>
+                    <div class="preview-canvas bracket-canvas">
+                        <div class="bracket-team">TEAM ALPHA <span class="score">2</span></div>
+                        <div class="bracket-team winner">TEAM OMEGA <span class="score">3</span></div>
+                        <div class="bracket-trophy"><i class="fa-solid fa-trophy neon-cyan"></i></div>
+                    </div>
+                </div>
+
                 <p><strong>Tournament Engine:</strong> Bracket Automation & Ranking</p>
                 <div class="architecture-flow">
                     <div class="flow-step">&gt; Step 1: Organizer creates tournament bracket & slot allocations</div>
@@ -279,8 +306,23 @@
     <div id="modal-vexa" class="modal-overlay">
         <div class="cyber-card modal-content">
             <button class="modal-close">&times;</button>
-            <h3>V.E.X.A. AI PIPELINE ARCHITECTURE</h3>
+            <h3>V.E.X.A. AI // PIPELINE VISUALIZER</h3>
             <div class="modal-body">
+                <div class="visual-preview-frame">
+                    <div class="preview-header">
+                        <span class="preview-tag">// NEURAL_VOICE_PIPELINE</span>
+                    </div>
+                    <div class="preview-canvas ai-canvas">
+                        <div class="pipeline-chip"><i class="fa-solid fa-microphone"></i> PyAudio</div>
+                        <i class="fa-solid fa-arrow-right neon-pink"></i>
+                        <div class="pipeline-chip"><i class="fa-solid fa-wave-square"></i> Whisper</div>
+                        <i class="fa-solid fa-arrow-right neon-pink"></i>
+                        <div class="pipeline-chip"><i class="fa-solid fa-brain"></i> Ollama</div>
+                        <i class="fa-solid fa-arrow-right neon-pink"></i>
+                        <div class="pipeline-chip"><i class="fa-solid fa-volume-high"></i> Edge-TTS</div>
+                    </div>
+                </div>
+
                 <p><strong>Pipeline Model:</strong> Offline Neural Voice Processing</p>
                 <div class="architecture-flow">
                     <div class="flow-step">&gt; Step 1: Microphone input captured via PyAudio stream</div>
