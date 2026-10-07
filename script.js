@@ -5,9 +5,9 @@ const themeIcon = themeToggleBtn.querySelector('i');
 themeToggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
     if (document.body.classList.contains('light-mode')) {
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-    } else {
         themeIcon.classList.replace('fa-sun', 'fa-moon');
+    } else {
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
     }
 });
 
@@ -40,6 +40,9 @@ async function fetchGitHubStats() {
         statusText.innerText = 'Connected to GitHub: @Pr1ncz-CodeX';
     }
 }
+
+fetchGitHubStats();
+
 // 4. Project Modal Handlers
 const modalTriggers = document.querySelectorAll('.modal-trigger');
 const modalCloses = document.querySelectorAll('.modal-close');
@@ -65,4 +68,54 @@ modalOverlays.forEach(overlay => {
         }
     });
 });
-fetchGitHubStats();
+
+// 5. HTML5 Canvas Matrix Code Rain Engine
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
+
+const characters = '0101010101010101010101010101010101010101010101010101010101010101010101010101';
+const fontSize = 14;
+const columns = Math.floor(width / fontSize);
+const drops = Array(columns).fill(1);
+
+function drawMatrix() {
+    ctx.fillStyle = 'rgba(5, 7, 15, 0.08)';
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.fillStyle = '#00f0ff';
+    ctx.font = `${fontSize}px Consolas, monospace`;
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = characters.charAt(Math.floor(Math.random() * characters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+        drops[i]++;
+    }
+}
+
+let matrixInterval = setInterval(drawMatrix, 40);
+
+// Matrix Animation Toggle Control
+const matrixToggleBtn = document.getElementById('matrix-toggle');
+let isMatrixEnabled = true;
+
+matrixToggleBtn.addEventListener('click', () => {
+    isMatrixEnabled = !isMatrixEnabled;
+    canvas.classList.toggle('disabled', !isMatrixEnabled);
+    if (isMatrixEnabled) {
+        matrixToggleBtn.style.color = 'var(--neon-cyan)';
+    } else {
+        matrixToggleBtn.style.color = 'var(--text-secondary)';
+    }
+});
