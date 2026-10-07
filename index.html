@@ -181,51 +181,124 @@
 
         <div class="projects-grid">
             <div class="card-3d glass-card project-card reveal">
-                <div class="project-header">
-                    <div class="icon-box"><i class="fa-solid fa-network-wired"></i></div>
-                    <span class="project-category">Web Engineering</span>
+                <div>
+                    <div class="project-header">
+                        <div class="icon-box"><i class="fa-solid fa-network-wired"></i></div>
+                        <span class="project-category">Web Engineering</span>
+                    </div>
+                    <h3>P2P File Transfer Application</h3>
+                    <p>High-speed peer-to-peer file sharing platform using real-time WebRTC DataChannels, WebSockets signaling, and binary array slicing for secure direct browser transfers.</p>
                 </div>
-                <h3>P2P File Transfer Application</h3>
-                <p>High-speed peer-to-peer file sharing platform using real-time WebRTC DataChannels, WebSockets signaling, and binary array slicing for secure direct browser transfers.</p>
-                <div class="project-tech">
-                    <span>FastAPI</span>
-                    <span>WebRTC</span>
-                    <span>WebSockets</span>
-                    <span>JavaScript</span>
-                </div>
-            </div>
-
-            <div class="card-3d glass-card project-card reveal">
-                <div class="project-header">
-                    <div class="icon-box"><i class="fa-solid fa-gamepad"></i></div>
-                    <span class="project-category">Web Platform</span>
-                </div>
-                <h3>Vanguard Arena</h3>
-                <p>Esports tournament management web system built to handle bracket generation, tournament registrations, match schedules, and automated leaderboard rankings.</p>
-                <div class="project-tech">
-                    <span>Java</span>
-                    <span>SQL</span>
-                    <span>HTML5/CSS3</span>
-                    <span>JavaScript</span>
+                <div>
+                    <div class="project-tech">
+                        <span>FastAPI</span>
+                        <span>WebRTC</span>
+                        <span>WebSockets</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <button class="btn secondary-btn modal-trigger" data-modal="modal-p2p">
+                        <i class="fa-solid fa-sitemap"></i> System Architecture
+                    </button>
                 </div>
             </div>
 
             <div class="card-3d glass-card project-card reveal">
-                <div class="project-header">
-                    <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
-                    <span class="project-category">AI / Systems</span>
+                <div>
+                    <div class="project-header">
+                        <div class="icon-box"><i class="fa-solid fa-gamepad"></i></div>
+                        <span class="project-category">Web Platform</span>
+                    </div>
+                    <h3>Vanguard Arena</h3>
+                    <p>Esports tournament management web system built to handle bracket generation, tournament registrations, match schedules, and automated leaderboard rankings.</p>
                 </div>
-                <h3>V.E.X.A. AI Desktop Assistant</h3>
-                <p>Voice-controlled local AI assistant operating offline with Edge Neural Text-to-Speech and Faster-Whisper Speech-to-Text for seamless voice command execution.</p>
-                <div class="project-tech">
-                    <span>Python</span>
-                    <span>Ollama</span>
-                    <span>Faster-Whisper</span>
-                    <span>Edge-TTS</span>
+                <div>
+                    <div class="project-tech">
+                        <span>Java</span>
+                        <span>SQL</span>
+                        <span>HTML5/CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <button class="btn secondary-btn modal-trigger" data-modal="modal-vanguard">
+                        <i class="fa-solid fa-sitemap"></i> System Architecture
+                    </button>
+                </div>
+            </div>
+
+            <div class="card-3d glass-card project-card reveal">
+                <div>
+                    <div class="project-header">
+                        <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
+                        <span class="project-category">AI / Systems</span>
+                    </div>
+                    <h3>V.E.X.A. AI Desktop Assistant</h3>
+                    <p>Voice-controlled local AI assistant operating offline with Edge Neural Text-to-Speech and Faster-Whisper Speech-to-Text for seamless voice command execution.</p>
+                </div>
+                <div>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Ollama</span>
+                        <span>Faster-Whisper</span>
+                        <span>Edge-TTS</span>
+                    </div>
+                    <button class="btn secondary-btn modal-trigger" data-modal="modal-vexa">
+                        <i class="fa-solid fa-sitemap"></i> System Architecture
+                    </button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modals Section -->
+    <div id="modal-p2p" class="modal-overlay">
+        <div class="glass-card modal-content">
+            <button class="modal-close">&times;</button>
+            <h3>P2P File Transfer Architecture</h3>
+            <div class="modal-body">
+                <p><strong>System Workflow:</strong> Peer-to-Peer Direct Transfer via WebRTC</p>
+                <div class="architecture-flow">
+                    <div class="flow-step">1. Client A connects to FastAPI WebSocket Signaling Server</div>
+                    <div class="flow-step">2. WebRTC Offer & SDP Handshake exchanged with Client B</div>
+                    <div class="flow-step">3. Direct WebRTC DataChannel established between Peers</div>
+                    <div class="flow-step">4. File sliced into 16KB ArrayBuffer chunks and transmitted direct without server storage</div>
+                </div>
+                <p><strong>Key Engineering Feature:</strong> Zero server bandwidth consumption during payload transfer.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-vanguard" class="modal-overlay">
+        <div class="glass-card modal-content">
+            <button class="modal-close">&times;</button>
+            <h3>Vanguard Arena System Workflow</h3>
+            <div class="modal-body">
+                <p><strong>System Workflow:</strong> Tournament & Leaderboard Engine</p>
+                <div class="architecture-flow">
+                    <div class="flow-step">1. Organizer creates tournament bracket & slot allocations</div>
+                    <div class="flow-step">2. Player authentication & SQL team roster registration</div>
+                    <div class="flow-step">3. Match results entry & auto-calculating score points algorithm</div>
+                    <div class="flow-step">4. Dynamic DOM update of dynamic standings and knockout trees</div>
+                </div>
+                <p><strong>Key Engineering Feature:</strong> Relational integrity enforcement for multi-stage esports brackets.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-vexa" class="modal-overlay">
+        <div class="glass-card modal-content">
+            <button class="modal-close">&times;</button>
+            <h3>V.E.X.A. AI Pipeline Architecture</h3>
+            <div class="modal-body">
+                <p><strong>System Workflow:</strong> Offline Neural Voice Processing</p>
+                <div class="architecture-flow">
+                    <div class="flow-step">1. Microphone input captured via PyAudio stream</div>
+                    <div class="flow-step">2. Faster-Whisper transcribes speech audio locally</div>
+                    <div class="flow-step">3. Ollama local LLM generates contextual response</div>
+                    <div class="flow-step">4. Edge-TTS converts output text into neural speech audio</div>
+                </div>
+                <p><strong>Key Engineering Feature:</strong> 100% local processing with zero external API dependencies.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="section">

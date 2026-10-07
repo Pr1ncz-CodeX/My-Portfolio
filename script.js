@@ -40,5 +40,29 @@ async function fetchGitHubStats() {
         statusText.innerText = 'Connected to GitHub: @Pr1ncz-CodeX';
     }
 }
+// 4. Project Modal Handlers
+const modalTriggers = document.querySelectorAll('.modal-trigger');
+const modalCloses = document.querySelectorAll('.modal-close');
+const modalOverlays = document.querySelectorAll('.modal-overlay');
 
+modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        const modalId = trigger.getAttribute('data-modal');
+        document.getElementById(modalId).classList.add('active');
+    });
+});
+
+modalCloses.forEach(closeBtn => {
+    closeBtn.addEventListener('click', () => {
+        closeBtn.closest('.modal-overlay').classList.remove('active');
+    });
+});
+
+modalOverlays.forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove('active');
+        }
+    });
+});
 fetchGitHubStats();
