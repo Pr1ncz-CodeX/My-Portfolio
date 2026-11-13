@@ -27,6 +27,28 @@
         <span class="reticle-bracket bottom-right"></span>
     </div>
 
+    <!-- Side Section Navigation Rail -->
+    <aside class="side-nav-rail" aria-label="Section Navigation">
+        <a href="#hero" class="rail-dot active" data-section="hero">
+            <span class="rail-label">TOP</span>
+        </a>
+        <a href="#projects" class="rail-dot" data-section="projects">
+            <span class="rail-label">PROJECTS</span>
+        </a>
+        <a href="#about" class="rail-dot" data-section="about">
+            <span class="rail-label">ABOUT</span>
+        </a>
+        <a href="#skills" class="rail-dot" data-section="skills">
+            <span class="rail-label">SKILLS</span>
+        </a>
+        <a href="#arsenal" class="rail-dot" data-section="arsenal">
+            <span class="rail-label">ARSENAL</span>
+        </a>
+        <a href="#contact" class="rail-dot" data-section="contact">
+            <span class="rail-label">CONTACT</span>
+        </a>
+    </aside>
+
     <!-- Floating Embers & Cursor Trail Canvas + Ambient Crimson Glows -->
     <canvas id="ember-canvas"></canvas>
     <div class="ambient-orb orb-1"></div>
@@ -47,7 +69,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
+    <header id="hero" class="hero">
         <div class="hero-left reveal">
             <div class="eyebrow-tag">
                 <span id="typewriter-role">SOFTWARE DEVELOPER</span><span class="type-cursor">|</span>
@@ -58,7 +80,10 @@
             </p>
             <div class="hero-actions">
                 <a href="#projects" class="btn btn-primary magnetic-btn">VIEW PROJECTS</a>
-                <a href="Prince_Resume.pdf" download="Prince_Samuvel_Resume.pdf" class="btn btn-outline magnetic-btn">
+                <button type="button" class="btn btn-outline magnetic-btn modal-trigger" data-modal="modal-resume">
+                    <i class="fa-solid fa-eye"></i> PREVIEW CV
+                </button>
+                <a href="Prince_Resume.pdf" download="Prince_Resume.pdf" class="btn btn-outline magnetic-btn">
                     <i class="fa-solid fa-download"></i> DOWNLOAD CV
                 </a>
             </div>
@@ -329,6 +354,27 @@
         <div>
             <strong>TRANSMISSION RECEIVED</strong>
             <p id="toast-message">Your message has been dispatched to Prince.</p>
+        </div>
+    </div>
+
+    <!-- In-Browser Resume Preview Modal -->
+    <div id="modal-resume" class="modal-overlay">
+        <div class="modal-card resume-modal-card">
+            <div class="resume-modal-header">
+                <div>
+                    <span class="eyebrow-tag">CURRICULUM VITAE</span>
+                    <h3>A. Prince Samuvel — Resume</h3>
+                </div>
+                <div class="resume-modal-actions">
+                    <a href="Prince_Resume.pdf" download="Prince_Resume.pdf" class="btn btn-primary btn-sm">
+                        <i class="fa-solid fa-download"></i> DOWNLOAD PDF
+                    </a>
+                    <button class="modal-close-inline" aria-label="Close Resume">&times;</button>
+                </div>
+            </div>
+            <div class="resume-frame-container">
+                <iframe src="Prince_Resume.pdf#view=FitH" title="Prince Samuvel Resume"></iframe>
+            </div>
         </div>
     </div>
 

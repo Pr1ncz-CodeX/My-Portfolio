@@ -1,7 +1,11 @@
-// 1. Scroll Reveal, Progress Bar & Animated Counters
+// 1. Scroll Reveal, Progress Bar, Side Rail Tracking & Animated Counters
 const revealElements = document.querySelectorAll('.reveal');
 const statNumbers = document.querySelectorAll('.stat-number');
 const scrollProgress = document.getElementById('scroll-progress');
+const railDots = document.querySelectorAll('.rail-dot');
+const trackedSections = ['hero', 'projects', 'about', 'skills', 'arsenal', 'contact']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
 let statsAnimated = false;
 
 const animateCounters = () => {
@@ -24,6 +28,21 @@ const animateCounters = () => {
     });
 };
 
+const updateActiveRailDot = () => {
+    const scrollPos = window.scrollY + window.innerHeight * 0.4;
+    let currentSectionId = 'hero';
+
+    trackedSections.forEach(sec => {
+        if (scrollPos >= sec.offsetTop) {
+            currentSectionId = sec.id;
+        }
+    });
+
+    railDots.forEach(dot => {
+        dot.classList.toggle('active', dot.getAttribute('data-section') === currentSectionId);
+    });
+};
+
 const handleScroll = () => {
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight - windowHeight;
@@ -31,6 +50,8 @@ const handleScroll = () => {
     if (scrollProgress) {
         scrollProgress.style.width = `${scrollPercent}%`;
     }
+
+    updateActiveRailDot();
 
     revealElements.forEach(el => {
         if (el.getBoundingClientRect().top < windowHeight - 80) {
@@ -62,7 +83,6 @@ if (cursorReticle && window.matchMedia('(pointer: fine)').matches) {
         mouseX = e.clientX;
         mouseY = e.clientY;
 
-        // Spawn subtle glowing crimson spark trail on movement
         if (Math.random() > 0.35) {
             cursorSparks.push({
                 x: mouseX + (Math.random() - 0.5) * 6,
@@ -78,8 +98,6 @@ if (cursorReticle && window.matchMedia('(pointer: fine)').matches) {
     const animateReticle = () => {
         reticleX += (mouseX - reticleX) * 0.24;
         reticleY += (mouseY - reticleY) * 0.24;
-
-        // Rotate smoothly when locked onto a target
         rotationAngle = isLocked ? 45 : 0;
         cursorReticle.style.transform = `translate(-50%, -50%) translate3d(${reticleX}px, ${reticleY}px, 0) rotate(${rotationAngle}deg)`;
         requestAnimationFrame(animateReticle);
@@ -230,7 +248,7 @@ async function fetchGitHubStats() {
 }
 fetchGitHubStats();
 
-// 8. Project Architecture Modals
+// 8. Project Architecture & Resume Preview Modals
 document.querySelectorAll('.modal-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
         const modalId = trigger.getAttribute('data-modal');
@@ -238,7 +256,7 @@ document.querySelectorAll('.modal-trigger').forEach(trigger => {
     });
 });
 
-document.querySelectorAll('.modal-close').forEach(btn => {
+document.querySelectorAll('.modal-close, .modal-close-inline').forEach(btn => {
     btn.addEventListener('click', () => {
         btn.closest('.modal-overlay').classList.remove('active');
     });
@@ -248,6 +266,12 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) overlay.classList.remove('active');
     });
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+    }
 });
 
 // 9. Floating Crimson Embers & Cursor Spark Trail Canvas
@@ -274,7 +298,6 @@ const embers = Array.from({ length: 55 }, () => ({
 function renderCanvas() {
     ctx.clearRect(0, 0, width, height);
 
-    // Ambient floating embers
     embers.forEach(p => {
         p.y += p.speedY;
         p.x += p.speedX;
@@ -292,7 +315,6 @@ function renderCanvas() {
         ctx.fill();
     });
 
-    // Cursor spark trail
     for (let i = cursorSparks.length - 1; i >= 0; i--) {
         const s = cursorSparks[i];
         s.x += s.vx;
