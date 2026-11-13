@@ -1,12 +1,15 @@
-// 1. Scroll Reveal, Progress Bar, Side Rail Tracking & Animated Counters
+// 1. Scroll Reveal, Progress Bar, Side Rail Tracking, Velocity Skew (#3) & Animated Counters
 const revealElements = document.querySelectorAll('.reveal');
 const statNumbers = document.querySelectorAll('.stat-number');
 const scrollProgress = document.getElementById('scroll-progress');
 const railDots = document.querySelectorAll('.rail-dot');
+const velocityCards = document.querySelectorAll('.velocity-skew');
 const trackedSections = ['hero', 'projects', 'about', 'skills', 'arsenal', 'contact']
     .map(id => document.getElementById(id))
     .filter(Boolean);
 let statsAnimated = false;
+let lastScrollY = window.scrollY;
+let skewTimeout;
 
 const animateCounters = () => {
     statNumbers.forEach(num => {
@@ -43,6 +46,28 @@ const updateActiveRailDot = () => {
     });
 };
 
+const applyVelocitySkew = () => {
+    const currentY = window.scrollY;
+    const delta = currentY - lastScrollY;
+    lastScrollY = currentY;
+
+    const clampedSkew = Math.max(-1.6, Math.min(1.6, delta * 0.06));
+    velocityCards.forEach(card => {
+        if (!card.matches(':hover')) {
+            card.style.transform = `skewY(${clampedSkew}deg)`;
+        }
+    });
+
+    clearTimeout(skewTimeout);
+    skewTimeout = setTimeout(() => {
+        velocityCards.forEach(card => {
+            if (!card.matches(':hover')) {
+                card.style.transform = 'skewY(0deg)';
+            }
+        });
+    }, 120);
+};
+
 const handleScroll = () => {
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight - windowHeight;
@@ -52,6 +77,7 @@ const handleScroll = () => {
     }
 
     updateActiveRailDot();
+    applyVelocitySkew();
 
     revealElements.forEach(el => {
         if (el.getBoundingClientRect().top < windowHeight - 80) {
@@ -104,7 +130,7 @@ if (cursorReticle && window.matchMedia('(pointer: fine)').matches) {
     };
     animateReticle();
 
-    const interactiveEls = document.querySelectorAll('a, button, .project-tile, input, textarea');
+    const interactiveEls = document.querySelectorAll('a, button, .project-tile, .arch-step, input, textarea');
     interactiveEls.forEach(el => {
         el.addEventListener('mouseenter', () => {
             isLocked = true;
@@ -248,7 +274,7 @@ async function fetchGitHubStats() {
 }
 fetchGitHubStats();
 
-// 8. Project Architecture & Resume Preview Modals
+// 8. Project Architecture Blueprint Nodes (#1) & Resume Preview Modals
 document.querySelectorAll('.modal-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
         const modalId = trigger.getAttribute('data-modal');
@@ -272,6 +298,27 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
     }
+});
+
+// Interactive Blueprint Node Inspector inside Modals
+document.querySelectorAll('.blueprint-modal').forEach(modal => {
+    const nodes = modal.querySelectorAll('.arch-step');
+    const protocolEl = modal.querySelector('.tel-protocol');
+    const metricEl = modal.querySelector('.tel-metric');
+    const payloadEl = modal.querySelector('.tel-payload');
+
+    nodes.forEach(node => {
+        const activateNode = () => {
+            nodes.forEach(n => n.classList.remove('active-node'));
+            node.classList.add('active-node');
+            if (protocolEl) protocolEl.textContent = node.getAttribute('data-protocol');
+            if (metricEl) metricEl.textContent = node.getAttribute('data-metric');
+            if (payloadEl) payloadEl.textContent = node.getAttribute('data-payload');
+        };
+
+        node.addEventListener('click', activateNode);
+        node.addEventListener('mouseenter', activateNode);
+    });
 });
 
 // 9. Floating Crimson Embers & Cursor Spark Trail Canvas
@@ -340,9 +387,20 @@ function renderCanvas() {
 
 renderCanvas();
 
-// 10. Mobile Hamburger Drawer Menu
+// 10. Mobile Hamburger Drawer Menu & DOM X-Ray Toggle (#4)
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileDrawer = document.getElementById('mobile-drawer');
+const xrayToggleBtn = document.getElementById('xray-toggle');
+const mobileXrayBtn = document.getElementById('mobile-xray-btn');
+
+const toggleXrayMode = () => {
+    const isXrayActive = document.body.classList.toggle('xray-mode');
+    if (xrayToggleBtn) xrayToggleBtn.classList.toggle('active', isXrayActive);
+    showToast(isXrayActive ? 'DOM X-RAY BLUEPRINT ENABLED' : 'DOM X-RAY BLUEPRINT DISABLED');
+};
+
+if (xrayToggleBtn) xrayToggleBtn.addEventListener('click', toggleXrayMode);
+if (mobileXrayBtn) mobileXrayBtn.addEventListener('click', toggleXrayMode);
 
 if (mobileMenuBtn && mobileDrawer) {
     const closeMobileDrawer = () => {

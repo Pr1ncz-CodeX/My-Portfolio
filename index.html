@@ -56,7 +56,7 @@
     <div class="ambient-orb orb-3"></div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" data-xray="<nav.navbar>">
         <div class="logo">PRINCE<span class="dot-accent">.</span></div>
         <ul class="nav-links">
             <li><a href="#projects">PROJECTS</a></li>
@@ -66,6 +66,9 @@
             <li><a href="#contact">CONTACT</a></li>
         </ul>
         <div class="nav-right-actions">
+            <button id="xray-toggle" class="xray-btn" title="Toggle DOM X-Ray Blueprint">
+                <i class="fa-solid fa-layer-group"></i> <span>X-RAY</span>
+            </button>
             <a href="#contact" class="nav-cta magnetic-btn">LET'S TALK</a>
             <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
                 <span class="bar"></span>
@@ -81,6 +84,9 @@
             <a href="#skills" class="mobile-nav-link">SKILLS</a>
             <a href="#arsenal" class="mobile-nav-link">ARSENAL</a>
             <a href="#contact" class="mobile-nav-link">CONTACT</a>
+            <button type="button" id="mobile-xray-btn" class="mobile-drawer-xray">
+                <i class="fa-solid fa-layer-group"></i> TOGGLE DOM X-RAY
+            </button>
             <button type="button" class="mobile-drawer-cv modal-trigger" data-modal="modal-resume">
                 <i class="fa-solid fa-eye"></i> PREVIEW RESUME
             </button>
@@ -88,7 +94,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header id="hero" class="hero">
+    <header id="hero" class="hero" data-xray="<header#hero.grid-2col>">
         <div class="hero-left reveal">
             <div class="eyebrow-tag">
                 <span id="typewriter-role">SOFTWARE DEVELOPER</span><span class="type-cursor">|</span>
@@ -108,7 +114,7 @@
             </div>
         </div>
 
-        <div class="hero-right reveal">
+        <div class="hero-right reveal" data-xray="<div.hero-portrait-wrapper>">
             <div class="hero-portrait-wrapper">
                 <div class="rim-glow"></div>
                 <img src="hero-cyber.png" alt="Cyber Engineering Workstation" class="hero-portrait">
@@ -118,23 +124,23 @@
     </header>
 
     <!-- Animated Stats Bar -->
-    <section class="stats-bar reveal">
-        <div class="stat-card tilt-card">
+    <section class="stats-bar reveal" data-xray="<section.stats-bar>">
+        <div class="stat-card tilt-card velocity-skew" data-xray="<div.stat-card>">
             <h2 class="stat-number" data-target="12">0+</h2>
             <p class="stat-label">SYSTEMS & REPOS BUILT</p>
         </div>
-        <div class="stat-card tilt-card">
+        <div class="stat-card tilt-card velocity-skew" data-xray="<div.stat-card>">
             <h2 class="stat-number" data-target="98">0%</h2>
             <p class="stat-label">QA TEST PASS ACCURACY</p>
         </div>
-        <div class="stat-card tilt-card">
+        <div class="stat-card tilt-card velocity-skew" data-xray="<div.stat-card>">
             <h2 class="stat-number" data-target="100">0%</h2>
             <p class="stat-label">ON-TIME DELIVERY</p>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <section id="projects" class="section" data-xray="<section#projects>">
         <div class="section-header reveal">
             <h2 class="section-title">PROJECTS<span class="dot-accent">.</span></h2>
             <p class="section-subtitle" id="github-repo-status">SYNCING WITH GITHUB @Pr1ncz-CodeX...</p>
@@ -142,7 +148,7 @@
 
         <div class="projects-grid">
             <!-- Project 1 -->
-            <div class="project-tile tilt-card reveal modal-trigger" data-modal="modal-p2p">
+            <div class="project-tile tilt-card velocity-skew reveal modal-trigger" data-modal="modal-p2p" data-xray="<article.project-tile.webrtc>">
                 <div class="tile-banner banner-p2p">
                     <span class="tile-badge">WEBRTC // FASTAPI</span>
                     <i class="fa-solid fa-network-wired tile-bg-icon"></i>
@@ -156,7 +162,7 @@
             </div>
 
             <!-- Project 2 -->
-            <div class="project-tile tilt-card reveal modal-trigger" data-modal="modal-vanguard">
+            <div class="project-tile tilt-card velocity-skew reveal modal-trigger" data-modal="modal-vanguard" data-xray="<article.project-tile.java-sql>">
                 <div class="tile-banner banner-vanguard">
                     <span class="tile-badge">JAVA // MYSQL</span>
                     <i class="fa-solid fa-trophy tile-bg-icon"></i>
@@ -170,7 +176,7 @@
             </div>
 
             <!-- Project 3 -->
-            <div class="project-tile tilt-card reveal modal-trigger" data-modal="modal-vexa">
+            <div class="project-tile tilt-card velocity-skew reveal modal-trigger" data-modal="modal-vexa" data-xray="<article.project-tile.ai-core>">
                 <div class="tile-banner banner-vexa">
                     <span class="tile-badge">PYTHON // OLLAMA</span>
                     <i class="fa-solid fa-microchip tile-bg-icon"></i>
@@ -186,7 +192,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about" class="section" data-xray="<section#about>">
         <div class="about-container reveal">
             <div class="about-text">
                 <h2 class="section-title left-align">ABOUT<br>PRINCE<span class="dot-accent">.</span></h2>
@@ -214,7 +220,7 @@
                 </div>
             </div>
 
-            <div class="about-card-visual">
+            <div class="about-card-visual" data-xray="<figure.polaroid-frame>">
                 <div class="polaroid-frame">
                     <div class="polaroid-img-wrap">
                         <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" alt="Crimson Code Architecture">
@@ -227,13 +233,13 @@
     </section>
 
     <!-- Technical Skills Section -->
-    <section id="skills" class="section">
+    <section id="skills" class="section" data-xray="<section#skills>">
         <div class="section-header reveal">
             <h2 class="section-title">TECHNICAL SKILLS<span class="dot-accent">.</span></h2>
         </div>
 
         <div class="skills-rows reveal">
-            <div class="skill-row-card tilt-card">
+            <div class="skill-row-card tilt-card velocity-skew" data-xray="<div.skill-row-card>">
                 <div class="skill-row-left">
                     <h3>Core Programming & Web</h3>
                     <p>Object-oriented architecture, backend APIs, and responsive frontend engineering.</p>
@@ -247,7 +253,7 @@
                 </div>
             </div>
 
-            <div class="skill-row-card tilt-card">
+            <div class="skill-row-card tilt-card velocity-skew" data-xray="<div.skill-row-card>">
                 <div class="skill-row-left">
                     <h3>QA & Test Automation</h3>
                     <p>End-to-end automated browser testing, regression cycles, and defect tracking.</p>
@@ -261,7 +267,7 @@
                 </div>
             </div>
 
-            <div class="skill-row-card tilt-card">
+            <div class="skill-row-card tilt-card velocity-skew" data-xray="<div.skill-row-card>">
                 <div class="skill-row-left">
                     <h3>Databases & Protocols</h3>
                     <p>Relational data modeling, real-time sockets, and peer-to-peer streaming.</p>
@@ -278,7 +284,7 @@
     </section>
 
     <!-- My Arsenal (Tool Icon Dock) -->
-    <section id="arsenal" class="section">
+    <section id="arsenal" class="section" data-xray="<section#arsenal>">
         <div class="section-header reveal">
             <h2 class="section-title">MY ARSENAL<span class="dot-accent">.</span></h2>
         </div>
@@ -316,13 +322,13 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="section" data-xray="<section#contact>">
         <div class="section-header reveal">
             <span class="eyebrow-tag">GET IN TOUCH</span>
             <h2 class="section-title">CONTACT<span class="dot-accent">.</span></h2>
         </div>
 
-        <div class="contact-box reveal">
+        <div class="contact-box reveal" data-xray="<div.contact-box>">
             <!-- Quick WhatsApp Bar -->
             <a href="https://wa.me/919566737688?text=Hi%20Prince,%20I%20saw%20your%20portfolio!" target="_blank" class="whatsapp-banner">
                 <div class="wa-left">
@@ -363,7 +369,7 @@
         </div>
     </section>
 
-    <footer>
+    <footer data-xray="<footer>">
         <p>&copy; 2026 A. PRINCE SAMUVEL. ALL RIGHTS RESERVED.</p>
     </footer>
 
@@ -397,45 +403,113 @@
         </div>
     </div>
 
-    <!-- System Architecture Modals -->
+    <!-- Interactive Blueprint Modal 1: P2P File Transfer -->
     <div id="modal-p2p" class="modal-overlay">
-        <div class="modal-card">
+        <div class="modal-card blueprint-modal">
             <button class="modal-close">&times;</button>
-            <span class="eyebrow-tag">SYSTEM ARCHITECTURE</span>
-            <h3>P2P File Transfer Application</h3>
-            <div class="arch-steps">
-                <div class="arch-step"><strong>01. Signaling:</strong> Client A connects to FastAPI WebSocket signaling server.</div>
-                <div class="arch-step"><strong>02. Handshake:</strong> WebRTC SDP Offer & ICE candidates exchanged with Client B.</div>
-                <div class="arch-step"><strong>03. DataChannel:</strong> Direct encrypted peer-to-peer tunnel established.</div>
-                <div class="arch-step"><strong>04. Chunking:</strong> Files sliced into 16KB ArrayBuffer chunks with zero server storage.</div>
+            <div class="blueprint-top">
+                <span class="eyebrow-tag">INTERACTIVE BLUEPRINT // CLICK NODE TO INSPECT</span>
+                <h3>P2P File Transfer Application</h3>
+            </div>
+            <div class="arch-steps interactive-nodes">
+                <div class="arch-step active-node" data-protocol="WS // JSON" data-payload="Room UUID + Peer Socket Registration (FastAPI Async)" data-metric="Latency: < 18ms">
+                    <div class="node-head"><strong>01. Signaling</strong> <span class="node-tag">FastAPI</span></div>
+                    <p>Client A connects to FastAPI WebSocket signaling server.</p>
+                </div>
+                <div class="arch-step" data-protocol="SDP // ICE" data-payload="Session Description Protocol Offer/Answer + STUN Candidate Exchange" data-metric="NAT Traversal: P2P Direct">
+                    <div class="node-head"><strong>02. Handshake</strong> <span class="node-tag">WebRTC</span></div>
+                    <p>WebRTC SDP Offer & ICE candidates exchanged with Client B.</p>
+                </div>
+                <div class="arch-step" data-protocol="SCTP // DTLS" data-payload="Encrypted Peer-to-Peer RTCDataChannel (Ordered = true)" data-metric="Encryption: AES-128 DTLS">
+                    <div class="node-head"><strong>03. DataChannel</strong> <span class="node-tag">Encrypted</span></div>
+                    <p>Direct encrypted peer-to-peer tunnel established.</p>
+                </div>
+                <div class="arch-step" data-protocol="BINARY // BLOB" data-payload="FileReader.readAsArrayBuffer() -> 16,384 Byte Chunks" data-metric="Server Storage: 0 Bytes">
+                    <div class="node-head"><strong>04. Chunking</strong> <span class="node-tag">16KB Slices</span></div>
+                    <p>Files sliced into 16KB ArrayBuffer chunks with zero server storage.</p>
+                </div>
+            </div>
+            <div class="telemetry-inspector">
+                <div class="telemetry-row">
+                    <span class="tel-label">PROTOCOL:</span>
+                    <span class="tel-val tel-protocol">WS // JSON</span>
+                    <span class="tel-metric">Latency: &lt; 18ms</span>
+                </div>
+                <div class="tel-payload">Room UUID + Peer Socket Registration (FastAPI Async)</div>
             </div>
         </div>
     </div>
 
+    <!-- Interactive Blueprint Modal 2: Vanguard Arena -->
     <div id="modal-vanguard" class="modal-overlay">
-        <div class="modal-card">
+        <div class="modal-card blueprint-modal">
             <button class="modal-close">&times;</button>
-            <span class="eyebrow-tag">SYSTEM ARCHITECTURE</span>
-            <h3>Vanguard Arena Tournament Engine</h3>
-            <div class="arch-steps">
-                <div class="arch-step"><strong>01. Seeding:</strong> Organizer configures knockout brackets and slot allocations.</div>
-                <div class="arch-step"><strong>02. Persistence:</strong> MySQL relational schema tracks rosters, matches, and scores.</div>
-                <div class="arch-step"><strong>03. Progression:</strong> Match result submission automatically advances winners.</div>
-                <div class="arch-step"><strong>04. Standings:</strong> Real-time leaderboard recalculation across active divisions.</div>
+            <div class="blueprint-top">
+                <span class="eyebrow-tag">INTERACTIVE BLUEPRINT // CLICK NODE TO INSPECT</span>
+                <h3>Vanguard Arena Tournament Engine</h3>
+            </div>
+            <div class="arch-steps interactive-nodes">
+                <div class="arch-step active-node" data-protocol="JAVA // TREE" data-payload="Binary Knockout Tree Generation (8 / 16 / 32 Slot Seeding)" data-metric="Complexity: O(N)">
+                    <div class="node-head"><strong>01. Seeding</strong> <span class="node-tag">Java Core</span></div>
+                    <p>Organizer configures knockout brackets and slot allocations.</p>
+                </div>
+                <div class="arch-step" data-protocol="JDBC // MYSQL" data-payload="Normalized Tables: tournaments, squads, players, match_logs" data-metric="Integrity: ACID Compliant">
+                    <div class="node-head"><strong>02. Persistence</strong> <span class="node-tag">MySQL</span></div>
+                    <p>MySQL relational schema tracks rosters, matches, and scores.</p>
+                </div>
+                <div class="arch-step" data-protocol="SQL // TRIGGER" data-payload="Winner ID Auto-Promoted to Next Round Parent Node" data-metric="Sync: Instant">
+                    <div class="node-head"><strong>03. Progression</strong> <span class="node-tag">Auto-Bracket</span></div>
+                    <p>Match result submission automatically advances winners.</p>
+                </div>
+                <div class="arch-step" data-protocol="DOM // JSON" data-payload="Points Differential + Kill/Win Ratio Sort Comparator" data-metric="Render: < 12ms">
+                    <div class="node-head"><strong>04. Standings</strong> <span class="node-tag">Live UI</span></div>
+                    <p>Real-time leaderboard recalculation across active divisions.</p>
+                </div>
+            </div>
+            <div class="telemetry-inspector">
+                <div class="telemetry-row">
+                    <span class="tel-label">PROTOCOL:</span>
+                    <span class="tel-val tel-protocol">JAVA // TREE</span>
+                    <span class="tel-metric">Complexity: O(N)</span>
+                </div>
+                <div class="tel-payload">Binary Knockout Tree Generation (8 / 16 / 32 Slot Seeding)</div>
             </div>
         </div>
     </div>
 
+    <!-- Interactive Blueprint Modal 3: V.E.X.A. AI -->
     <div id="modal-vexa" class="modal-overlay">
-        <div class="modal-card">
+        <div class="modal-card blueprint-modal">
             <button class="modal-close">&times;</button>
-            <span class="eyebrow-tag">SYSTEM ARCHITECTURE</span>
-            <h3>V.E.X.A. Offline AI Pipeline</h3>
-            <div class="arch-steps">
-                <div class="arch-step"><strong>01. Audio Capture:</strong> Low-latency microphone stream captured via PyAudio.</div>
-                <div class="arch-step"><strong>02. Speech-to-Text:</strong> Faster-Whisper transcribes voice commands locally.</div>
-                <div class="arch-step"><strong>03. Inference:</strong> Local Ollama LLM processes intent and executes system actions.</div>
-                <div class="arch-step"><strong>04. Voice Synthesis:</strong> Edge-TTS renders natural neural audio feedback.</div>
+            <div class="blueprint-top">
+                <span class="eyebrow-tag">INTERACTIVE BLUEPRINT // CLICK NODE TO INSPECT</span>
+                <h3>V.E.X.A. Offline AI Pipeline</h3>
+            </div>
+            <div class="arch-steps interactive-nodes">
+                <div class="arch-step active-node" data-protocol="PCM // 16KHZ" data-payload="PyAudio Mono Input Stream + Voice Activity Detection (VAD)" data-metric="Buffer: 1024 Frames">
+                    <div class="node-head"><strong>01. Audio Capture</strong> <span class="node-tag">PyAudio</span></div>
+                    <p>Low-latency microphone stream captured via PyAudio.</p>
+                </div>
+                <div class="arch-step" data-protocol="CTranslate2" data-payload="Faster-Whisper INT8 Quantized Acoustic Transcription" data-metric="Cloud Dependency: 0%">
+                    <div class="node-head"><strong>02. Speech-to-Text</strong> <span class="node-tag">Whisper</span></div>
+                    <p>Faster-Whisper transcribes voice commands locally.</p>
+                </div>
+                <div class="arch-step" data-protocol="REST // LOCAL" data-payload="Ollama Localhost Inference + OS Command Router" data-metric="Privacy: 100% Offline">
+                    <div class="node-head"><strong>03. Inference</strong> <span class="node-tag">Ollama LLM</span></div>
+                    <p>Local Ollama LLM processes intent and executes system actions.</p>
+                </div>
+                <div class="arch-step" data-protocol="NEURAL // MP3" data-payload="Edge-TTS Neural Prosody Synthesis -> Audio Playback" data-metric="Output: Natural Voice">
+                    <div class="node-head"><strong>04. Voice Synthesis</strong> <span class="node-tag">Edge-TTS</span></div>
+                    <p>Edge-TTS renders natural neural audio feedback.</p>
+                </div>
+            </div>
+            <div class="telemetry-inspector">
+                <div class="telemetry-row">
+                    <span class="tel-label">PROTOCOL:</span>
+                    <span class="tel-val tel-protocol">PCM // 16KHZ</span>
+                    <span class="tel-metric">Buffer: 1024 Frames</span>
+                </div>
+                <div class="tel-payload">PyAudio Mono Input Stream + Voice Activity Detection (VAD)</div>
             </div>
         </div>
     </div>
