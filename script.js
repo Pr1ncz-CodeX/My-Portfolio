@@ -1,76 +1,82 @@
-// 1. Dark / Light Theme Toggle
-const themeToggleBtn = document.getElementById('theme-toggle');
-const themeIcon = themeToggleBtn.querySelector('i');
-
-themeToggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    if (document.body.classList.contains('light-mode')) {
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-    } else {
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-    }
-});
-
-// 2. Scroll Reveal Animations
+// 1. Scroll Reveal & Animated Number Counters
 const revealElements = document.querySelectorAll('.reveal');
+const statNumbers = document.querySelectorAll('.stat-number');
+let statsAnimated = false;
 
-const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    revealElements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) {
-            el.classList.add('active');
-        }
+const animateCounters = () => {
+    statNumbers.forEach(num => {
+        const target = +num.getAttribute('data-target');
+        const suffix = num.innerText.replace(/[0-9]/g, '');
+        let current = 0;
+        const increment = Math.ceil(target / 40);
+
+        const updateCount = () => {
+            current += increment;
+            if (current >= target) {
+                num.innerText = target + suffix;
+            } else {
+                num.innerText = current + suffix;
+                requestAnimationFrame(updateCount);
+            }
+        };
+        updateCount();
     });
 };
 
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll();
+const handleScroll = () => {
+    const windowHeight = window.innerHeight;
+    revealElements.forEach(el => {
+        if (el.getBoundingClientRect().top < windowHeight - 80) {
+            el.classList.add('active');
+        }
+    });
 
-// 3. Live GitHub Repository Stats Fetcher
+    const statsBar = document.querySelector('.stats-bar');
+    if (statsBar && !statsAnimated && statsBar.getBoundingClientRect().top < windowHeight - 50) {
+        statsAnimated = true;
+        animateCounters();
+    }
+};
+
+window.addEventListener('scroll', handleScroll);
+handleScroll();
+
+// 2. Live GitHub Repository Sync
 async function fetchGitHubStats() {
     const statusText = document.getElementById('github-repo-status');
     try {
         const response = await fetch('https://api.github.com/users/Pr1ncz-CodeX/repos');
         if (!response.ok) throw new Error('Network error');
         const repos = await response.json();
-        
-        statusText.innerHTML = `Active Repositories: <strong>${repos.length}</strong> | Latest Updated Repo: <strong>${repos[0].name}</strong>`;
-    } catch (error) {
-        statusText.innerText = 'Connected to GitHub: @Pr1ncz-CodeX';
+        statusText.innerText = `${repos.length} PUBLIC REPOSITORIES // LATEST: ${repos[0].name.toUpperCase()}`;
+    } catch {
+        statusText.innerText = 'CONNECTED TO GITHUB // @PR1NCZ-CODEX';
     }
 }
-
 fetchGitHubStats();
 
-// 4. Project Modal Handlers
-const modalTriggers = document.querySelectorAll('.modal-trigger');
-const modalCloses = document.querySelectorAll('.modal-close');
-const modalOverlays = document.querySelectorAll('.modal-overlay');
-
-modalTriggers.forEach(trigger => {
+// 3. Project Architecture Modals
+document.querySelectorAll('.modal-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
         const modalId = trigger.getAttribute('data-modal');
         document.getElementById(modalId).classList.add('active');
     });
 });
 
-modalCloses.forEach(closeBtn => {
-    closeBtn.addEventListener('click', () => {
-        closeBtn.closest('.modal-overlay').classList.remove('active');
+document.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.closest('.modal-overlay').classList.remove('active');
     });
 });
 
-modalOverlays.forEach(overlay => {
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
     overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-            overlay.classList.remove('active');
-        }
+        if (e.target === overlay) overlay.classList.remove('active');
     });
 });
 
-// 5. HTML5 Canvas Matrix Code Rain Engine
-const canvas = document.getElementById('matrix-canvas');
+// 4. Floating Crimson Ember Particles Canvas
+const canvas = document.getElementById('ember-canvas');
 const ctx = canvas.getContext('2d');
 
 let width = canvas.width = window.innerWidth;
@@ -81,41 +87,36 @@ window.addEventListener('resize', () => {
     height = canvas.height = window.innerHeight;
 });
 
-const characters = '0101010101010101010101010101010101010101010101010101010101010101010101010101';
-const fontSize = 14;
-const columns = Math.floor(width / fontSize);
-const drops = Array(columns).fill(1);
+const embers = Array.from({ length: 55 }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    radius: Math.random() * 2.2 + 0.6,
+    speedY: -(Math.random() * 0.6 + 0.2),
+    speedX: (Math.random() - 0.5) * 0.4,
+    alpha: Math.random() * 0.7 + 0.2
+}));
 
-function drawMatrix() {
-    ctx.fillStyle = 'rgba(5, 7, 15, 0.08)';
-    ctx.fillRect(0, 0, width, height);
+function renderEmbers() {
+    ctx.clearRect(0, 0, width, height);
 
-    ctx.fillStyle = '#00f0ff';
-    ctx.font = `${fontSize}px Consolas, monospace`;
+    embers.forEach(p => {
+        p.y += p.speedY;
+        p.x += p.speedX;
 
-    for (let i = 0; i < drops.length; i++) {
-        const text = characters.charAt(Math.floor(Math.random() * characters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > height && Math.random() > 0.975) {
-            drops[i] = 0;
+        if (p.y < -10) {
+            p.y = height + 10;
+            p.x = Math.random() * width;
         }
-        drops[i]++;
-    }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 45, 70, ${p.alpha})`;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = '#ff1e38';
+        ctx.fill();
+    });
+
+    requestAnimationFrame(renderEmbers);
 }
 
-let matrixInterval = setInterval(drawMatrix, 40);
-
-// Matrix Animation Toggle Control
-const matrixToggleBtn = document.getElementById('matrix-toggle');
-let isMatrixEnabled = true;
-
-matrixToggleBtn.addEventListener('click', () => {
-    isMatrixEnabled = !isMatrixEnabled;
-    canvas.classList.toggle('disabled', !isMatrixEnabled);
-    if (isMatrixEnabled) {
-        matrixToggleBtn.style.color = 'var(--neon-cyan)';
-    } else {
-        matrixToggleBtn.style.color = 'var(--text-secondary)';
-    }
-});
+renderEmbers();

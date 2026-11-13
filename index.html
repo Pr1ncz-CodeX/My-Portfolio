@@ -3,393 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A. Prince Samuvel // Software Engineer & QA Specialist</title>
+    <title>A. Prince Samuvel | Software Developer & QA Specialist</title>
 
-    <!-- Custom Developer Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2305070f'/><text x='50%' y='68%' font-family='Consolas, monospace' font-weight='bold' font-size='55' fill='%2300f0ff' text-anchor='middle'>P</text></svg>">
+    <!-- Custom Crimson Developer Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23070405'/><text x='50%' y='68%' font-family='Arial Black, sans-serif' font-weight='900' font-size='58' fill='%23ff1e38' text-anchor='middle'>P</text></svg>">
 
-    <!-- SEO & Social Meta Tags -->
-    <meta name="title" content="A. Prince Samuvel // Software Engineer & QA Specialist">
-    <meta name="description" content="Cyberpunk Tech Portfolio of A. Prince Samuvel — Specializing in Java, Web Engineering, WebRTC P2P, and Selenium QA Automation.">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="A. Prince Samuvel // Tech Portfolio">
-    <meta property="og:description" content="Explore full-stack software systems and QA testing engineering.">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="cyber-theme">
+<body>
 
-    <!-- Interactive Matrix Canvas & Tech Grid Background -->
-    <canvas id="matrix-canvas"></canvas>
-    <div class="bg-grid"></div>
-    <div class="scanlines"></div>
+    <!-- Floating Embers Canvas & Ambient Crimson Glows -->
+    <canvas id="ember-canvas"></canvas>
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo"><span class="terminal-prompt">&gt;</span> PRINCE<span class="highlight">.DEV</span></div>
-        <div class="system-status"><span class="status-dot"></span> SYSTEM_ONLINE</div>
+        <div class="logo">PRINCE<span class="dot-accent">.</span></div>
         <ul class="nav-links">
-            <li><a href="#about">// ABOUT</a></li>
-            <li><a href="#skills">// STACK</a></li>
-            <li><a href="#experience">// EXP</a></li>
-            <li><a href="#projects">// PROJECTS</a></li>
-            <li><a href="#contact">// CONTACT</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#arsenal">ARSENAL</a></li>
+            <li><a href="#contact">CONTACT</a></li>
         </ul>
-        <div class="nav-controls">
-            <button id="matrix-toggle" class="theme-btn" title="Toggle Matrix Effect">
-                <i class="fa-solid fa-terminal"></i>
-            </button>
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
-                <i class="fa-solid fa-sun"></i>
-            </button>
-        </div>
+        <a href="#contact" class="nav-cta">LET'S TALK</a>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero">
-        <div class="hero-content reveal">
-            <div class="cyber-badge"><i class="fa-solid fa-terminal"></i> READY_FOR_DEPLOYMENT // QA & DEV</div>
-            <h1 class="hero-title">ENGINEERING <span class="neon-cyan">HIGH-PERFORMANCE</span> SYSTEMS</h1>
-            <p class="hero-sub">Final-year CS Undergraduate specializing in Java Core, WebRTC protocols, FastAPI microservices, and Selenium QA Automation.</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn cyber-btn primary">SYSTEMS // EXPLORE <i class="fa-solid fa-chevron-right"></i></a>
-                <a href="Prince_Resume_A4_Optimized.pdf" download="Prince_Samuvel_Resume.pdf" class="btn cyber-btn secondary">
-                    <i class="fa-solid fa-file-code"></i> RESUME.PDF
+        <div class="hero-left reveal">
+            <div class="eyebrow-tag">SOFTWARE DEVELOPER & QA AUTOMATION ENGINEER</div>
+            <h1 class="hero-name">PRINCE<span class="dot-accent">.</span></h1>
+            <p class="hero-desc">
+                Final-year Computer Science undergraduate crafting resilient backend systems, WebRTC peer-to-peer protocols, and automated Selenium QA suites with precision.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">VIEW PROJECTS</a>
+                <a href="Prince_Resume_A4_Optimized.pdf" download="Prince_Samuvel_Resume.pdf" class="btn btn-outline">
+                    <i class="fa-solid fa-download"></i> DOWNLOAD CV
                 </a>
             </div>
         </div>
 
-        <div class="hero-visual reveal">
-            <div class="cyber-card terminal-card floating">
-                <div class="terminal-bar">
-                    <span class="term-title">bash - prince@core-system:~</span>
-                    <div class="term-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                    </div>
-                </div>
-                <div class="terminal-body">
-                    <p class="line"><span class="prompt">$</span> whoami</p>
-                    <p class="response">&gt; A. Prince Samuvel</p>
-                    <p class="line"><span class="prompt">$</span> cat primary_skills.json</p>
-                    <p class="response">&gt; ["Java", "Selenium QA", "WebRTC", "FastAPI", "SQL"]</p>
-                    <p class="line"><span class="prompt">$</span> status --location</p>
-                    <p class="response neon-green">&gt; ACTIVE // Tirunelveli, India</p>
-                </div>
+        <div class="hero-right reveal">
+            <div class="hero-portrait-wrapper">
+                <div class="rim-glow"></div>
+                <!-- Replace src with your own portrait image anytime (e.g., src="prince.png") -->
+                <img src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=800&auto=format&fit=crop" alt="A. Prince Samuvel" class="hero-portrait">
+                <div class="portrait-fade"></div>
             </div>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2 class="section-title reveal"><span class="prompt-symbol">#</span> ABOUT_<span class="neon-cyan">INFO</span></h2>
-        <div class="about-grid">
-            <div class="cyber-card reveal">
-                <div class="card-corner"></div>
-                <i class="fa-solid fa-graduation-cap icon"></i>
-                <h3>EDUCATION</h3>
-                <p class="card-headline">B.Sc. Computer Science</p>
-                <p class="card-sub">St. John's College of Arts and Science</p>
-                <span class="cyber-tag">2024 - 2027</span>
+    <!-- Animated Stats Bar -->
+    <section class="stats-bar reveal">
+        <div class="stat-card">
+            <h2 class="stat-number" data-target="12">0+</h2>
+            <p class="stat-label">SYSTEMS & REPOS BUILT</p>
+        </div>
+        <div class="stat-card">
+            <h2 class="stat-number" data-target="98">0%</h2>
+            <p class="stat-label">QA TEST PASS ACCURACY</p>
+        </div>
+        <div class="stat-card">
+            <h2 class="stat-number" data-target="100">0%</h2>
+            <p class="stat-label">ON-TIME DELIVERY</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="section-header reveal">
+            <h2 class="section-title">PROJECTS<span class="dot-accent">.</span></h2>
+            <p class="section-subtitle" id="github-repo-status">SYNCING WITH GITHUB @Pr1ncz-CodeX...</p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-tile reveal modal-trigger" data-modal="modal-p2p">
+                <div class="tile-banner banner-p2p">
+                    <span class="tile-badge">WEBRTC // FASTAPI</span>
+                    <i class="fa-solid fa-network-wired tile-bg-icon"></i>
+                    <div class="tile-overlay-text">DIRECT P2P TRANSFER</div>
+                </div>
+                <div class="tile-info">
+                    <h3>P2P File Transfer Engine</h3>
+                    <p>Zero-server-storage browser file sharing using WebRTC DataChannels & binary array slicing.</p>
+                    <span class="tile-link">INSPECT ARCHITECTURE <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </div>
             </div>
-            <div class="cyber-card reveal">
-                <div class="card-corner"></div>
-                <i class="fa-solid fa-certificate icon"></i>
-                <h3>CERTIFICATIONS</h3>
-                <p class="card-headline">OOP Fundamentals</p>
-                <p class="card-sub">NPTEL IIT Roorkee (SWAYAM)</p>
-                <p class="card-headline margin-top">Typewriting English</p>
-                <p class="card-sub">DoTE Tamil Nadu</p>
+
+            <!-- Project 2 -->
+            <div class="project-tile reveal modal-trigger" data-modal="modal-vanguard">
+                <div class="tile-banner banner-vanguard">
+                    <span class="tile-badge">JAVA // MYSQL</span>
+                    <i class="fa-solid fa-trophy tile-bg-icon"></i>
+                    <div class="tile-overlay-text">VANGUARD ARENA</div>
+                </div>
+                <div class="tile-info">
+                    <h3>Vanguard Esports Arena</h3>
+                    <p>Automated tournament bracket generator, team roster manager, and live match standings.</p>
+                    <span class="tile-link">INSPECT ARCHITECTURE <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-tile reveal modal-trigger" data-modal="modal-vexa">
+                <div class="tile-banner banner-vexa">
+                    <span class="tile-badge">PYTHON // OLLAMA</span>
+                    <i class="fa-solid fa-microchip tile-bg-icon"></i>
+                    <div class="tile-overlay-text">V.E.X.A. AI CORE</div>
+                </div>
+                <div class="tile-info">
+                    <h3>V.E.X.A. Offline AI Assistant</h3>
+                    <p>Local voice-controlled assistant powered by Faster-Whisper STT, Ollama LLM, and Edge-TTS.</p>
+                    <span class="tile-link">INSPECT ARCHITECTURE <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="about-container reveal">
+            <div class="about-text">
+                <h2 class="section-title left-align">ABOUT<br>PRINCE<span class="dot-accent">.</span></h2>
+                <p class="about-bio">
+                    I am a final-year Computer Science undergraduate at <strong>St. John's College of Arts and Science (2024–2027)</strong> and a former <strong>Software Testing Intern at Access Tech</strong>. I bridge the gap between full-stack software engineering and bulletproof quality assurance—building fast web applications and validating them with automated Java & Selenium test suites.
+                </p>
+
+                <div class="credentials-grid">
+                    <div class="cred-pill">
+                        <span class="cred-title">EXPERIENCE</span>
+                        <span class="cred-val">QA Testing Intern @ Access Tech</span>
+                    </div>
+                    <div class="cred-pill">
+                        <span class="cred-title">CERTIFICATION</span>
+                        <span class="cred-val">OOP Fundamentals (NPTEL IIT Roorkee)</span>
+                    </div>
+                    <div class="cred-pill">
+                        <span class="cred-title">CERTIFICATION</span>
+                        <span class="cred-val">Typewriting English (DoTE Tamil Nadu)</span>
+                    </div>
+                    <div class="cred-pill">
+                        <span class="cred-title">LOCATION</span>
+                        <span class="cred-val">Tirunelveli, Tamil Nadu, India</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card-visual">
+                <div class="polaroid-frame">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Code Workspace">
+                    <div class="polaroid-caption">DEV & QA // TIRUNELVELI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
     <section id="skills" class="section">
-        <h2 class="section-title reveal"><span class="prompt-symbol">#</span> TECH_<span class="neon-pink">STACK</span></h2>
-        <div class="skills-grid">
-            <div class="cyber-card reveal">
-                <h3><i class="fa-solid fa-code"></i> LANGUAGES & CORE</h3>
-                <div class="tags">
+        <div class="section-header reveal">
+            <h2 class="section-title">TECHNICAL SKILLS<span class="dot-accent">.</span></h2>
+        </div>
+
+        <div class="skills-rows reveal">
+            <div class="skill-row-card">
+                <div class="skill-row-left">
+                    <h3>Core Programming & Web</h3>
+                    <p>Object-oriented architecture, backend APIs, and responsive frontend engineering.</p>
+                </div>
+                <div class="skill-row-tags">
                     <span>Java</span>
                     <span>JavaScript (ES6+)</span>
                     <span>C++</span>
-                    <span>SQL</span>
+                    <span>Python</span>
                     <span>HTML5 / CSS3</span>
-                    <span>OOPs</span>
+                </div>
+            </div>
+
+            <div class="skill-row-card">
+                <div class="skill-row-left">
+                    <h3>QA & Test Automation</h3>
+                    <p>End-to-end automated browser testing, regression cycles, and defect tracking.</p>
+                </div>
+                <div class="skill-row-tags">
+                    <span>Selenium WebDriver</span>
+                    <span>Manual Testing</span>
+                    <span>Regression Testing</span>
+                    <span>Cross-Browser QA</span>
                     <span>SDLC</span>
                 </div>
             </div>
-            <div class="cyber-card reveal">
-                <h3><i class="fa-solid fa-bug"></i> TESTING & QA</h3>
-                <div class="tags">
-                    <span>Selenium WebDriver</span>
-                    <span>Test Automation</span>
-                    <span>Manual Testing</span>
-                    <span>Regression Testing</span>
-                    <span>Cross-Browser Testing</span>
+
+            <div class="skill-row-card">
+                <div class="skill-row-left">
+                    <h3>Databases & Protocols</h3>
+                    <p>Relational data modeling, real-time sockets, and peer-to-peer streaming.</p>
                 </div>
-            </div>
-            <div class="cyber-card reveal">
-                <h3><i class="fa-solid fa-database"></i> DATABASES & TOOLS</h3>
-                <div class="tags">
+                <div class="skill-row-tags">
                     <span>MySQL</span>
                     <span>Oracle DB</span>
-                    <span>Git & GitHub</span>
-                    <span>VS Code</span>
-                    <span>Chrome DevTools</span>
+                    <span>WebRTC</span>
+                    <span>WebSockets</span>
                     <span>REST APIs</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <h2 class="section-title reveal"><span class="prompt-symbol">#</span> WORK_<span class="neon-green">HISTORY</span></h2>
-        <div class="timeline">
-            <div class="cyber-card timeline-card reveal">
-                <div class="timeline-header">
+    <!-- My Arsenal (Tool Icon Dock) -->
+    <section id="arsenal" class="section">
+        <div class="section-header reveal">
+            <h2 class="section-title">MY ARSENAL<span class="dot-accent">.</span></h2>
+        </div>
+
+        <div class="arsenal-dock reveal">
+            <div class="arsenal-item">
+                <i class="fa-brands fa-java"></i>
+                <span>Java</span>
+            </div>
+            <div class="arsenal-item">
+                <i class="fa-solid fa-vial-circle-check"></i>
+                <span>Selenium</span>
+            </div>
+            <div class="arsenal-item">
+                <i class="fa-brands fa-python"></i>
+                <span>Python</span>
+            </div>
+            <div class="arsenal-item">
+                <i class="fa-brands fa-js"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="arsenal-item">
+                <i class="fa-solid fa-database"></i>
+                <span>MySQL</span>
+            </div>
+            <div class="arsenal-item">
+                <i class="fa-brands fa-git-alt"></i>
+                <span>Git</span>
+            </div>
+            <div class="arsenal-item">
+                <i class="fa-solid fa-code"></i>
+                <span>VS Code</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="section-header reveal">
+            <span class="eyebrow-tag">GET IN TOUCH</span>
+            <h2 class="section-title">CONTACT<span class="dot-accent">.</span></h2>
+        </div>
+
+        <div class="contact-box reveal">
+            <!-- Quick WhatsApp Bar -->
+            <a href="https://wa.me/919566737688?text=Hi%20Prince,%20I%20saw%20your%20portfolio!" target="_blank" class="whatsapp-banner">
+                <div class="wa-left">
+                    <i class="fa-brands fa-whatsapp"></i>
                     <div>
-                        <h3>Software Testing Intern</h3>
-                        <p class="company">Access Tech | Tirunelveli, India</p>
+                        <span class="wa-label">DIRECT WHATSAPP</span>
+                        <span class="wa-number">+91 95667 37688</span>
                     </div>
-                    <span class="cyber-tag highlight-tag">QA_INTERN</span>
                 </div>
-                <ul class="experience-list">
-                    <li>Authored and executed manual test cases alongside automated test scripts using Selenium WebDriver in Java.</li>
-                    <li>Performed functional, regression, and cross-browser testing across client web modules.</li>
-                    <li>Identified, documented, and logged software defects with step-by-step reproduction details.</li>
-                    <li>Participated in test cycle reviews with senior developers to validate application features.</li>
-                </ul>
+                <span class="wa-action">CHAT NOW <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <!-- Contact Form -->
+            <form action="https://formspree.io/f/xvgzorqy" method="POST" class="cinematic-form">
+                <div class="form-row">
+                    <div class="input-block">
+                        <label>YOUR NAME</label>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-block">
+                        <label>YOUR EMAIL</label>
+                        <input type="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                </div>
+                <div class="input-block">
+                    <label>MESSAGE & ROLE / PROJECT SCOPE</label>
+                    <textarea name="message" rows="4" placeholder="Let's build something impactful together..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+            </form>
+
+            <!-- Direct Social Links -->
+            <div class="contact-footer-links">
+                <a href="mailto:racerprince4533@gmail.com"><i class="fa-solid fa-envelope"></i> racerprince4533@gmail.com</a>
+                <a href="https://linkedin.com/in/prince-samuvel-7841a02b0" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/Pr1ncz-CodeX" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2 class="section-title reveal"><span class="prompt-symbol">#</span> FEATURED_<span class="neon-cyan">PROJECTS</span></h2>
+    <footer>
+        <p>&copy; 2026 A. PRINCE SAMUVEL. ALL RIGHTS RESERVED.</p>
+    </footer>
 
-        <div class="github-stats-card cyber-card reveal">
-            <i class="fa-brands fa-github github-icon"></i>
-            <div>
-                <h3>GITHUB REPOSITORY METRICS</h3>
-                <p id="github-repo-status">Fetching live updates from @Pr1ncz-CodeX...</p>
-            </div>
-        </div>
-
-        <div class="projects-grid">
-            <div class="cyber-card project-card reveal">
-                <div>
-                    <div class="project-header">
-                        <div class="icon-box"><i class="fa-solid fa-network-wired"></i></div>
-                        <span class="project-category">// P2P PROTOCOL</span>
-                    </div>
-                    <h3>P2P File Transfer Application</h3>
-                    <p>High-speed peer-to-peer file sharing platform using real-time WebRTC DataChannels, WebSockets signaling, and binary array slicing for secure direct browser transfers.</p>
-                </div>
-                <div>
-                    <div class="project-tech">
-                        <span>FastAPI</span>
-                        <span>WebRTC</span>
-                        <span>WebSockets</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <button class="btn cyber-btn secondary modal-trigger" data-modal="modal-p2p">
-                        <i class="fa-solid fa-diagram-project"></i> SYSTEM ARCHITECTURE
-                    </button>
-                </div>
-            </div>
-
-            <div class="cyber-card project-card reveal">
-                <div>
-                    <div class="project-header">
-                        <div class="icon-box"><i class="fa-solid fa-gamepad"></i></div>
-                        <span class="project-category">// WEB PLATFORM</span>
-                    </div>
-                    <h3>Vanguard Arena</h3>
-                    <p>Esports tournament management web system built to handle bracket generation, tournament registrations, match schedules, and automated leaderboard rankings.</p>
-                </div>
-                <div>
-                    <div class="project-tech">
-                        <span>Java</span>
-                        <span>SQL</span>
-                        <span>HTML5/CSS3</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <button class="btn cyber-btn secondary modal-trigger" data-modal="modal-vanguard">
-                        <i class="fa-solid fa-diagram-project"></i> SYSTEM ARCHITECTURE
-                    </button>
-                </div>
-            </div>
-
-            <div class="cyber-card project-card reveal">
-                <div>
-                    <div class="project-header">
-                        <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
-                        <span class="project-category">// AI ARCHITECTURE</span>
-                    </div>
-                    <h3>V.E.X.A. AI Desktop Assistant</h3>
-                    <p>Voice-controlled local AI assistant operating offline with Edge Neural Text-to-Speech and Faster-Whisper Speech-to-Text for seamless voice command execution.</p>
-                </div>
-                <div>
-                    <div class="project-tech">
-                        <span>Python</span>
-                        <span>Ollama</span>
-                        <span>Faster-Whisper</span>
-                        <span>Edge-TTS</span>
-                    </div>
-                    <button class="btn cyber-btn secondary modal-trigger" data-modal="modal-vexa">
-                        <i class="fa-solid fa-diagram-project"></i> SYSTEM ARCHITECTURE
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Architecture Modals with Dynamic Visual Previews -->
+    <!-- System Architecture Modals -->
     <div id="modal-p2p" class="modal-overlay">
-        <div class="cyber-card modal-content">
+        <div class="modal-card">
             <button class="modal-close">&times;</button>
-            <h3>P2P FILE TRANSFER // ARCHITECTURE & UI</h3>
-            <div class="modal-body">
-                <div class="visual-preview-frame">
-                    <div class="preview-header">
-                        <span class="preview-tag">// P2P_WEBRTC_DATACHANNEL_FLOW</span>
-                    </div>
-                    <div class="preview-canvas p2p-canvas">
-                        <div class="node-box"><i class="fa-solid fa-desktop"></i><span>PEER A</span></div>
-                        <div class="connection-line"><span class="data-pulse"></span></div>
-                        <div class="server-node"><i class="fa-solid fa-server"></i><span>FASTAPI SIGNALS</span></div>
-                        <div class="connection-line"><span class="data-pulse"></span></div>
-                        <div class="node-box"><i class="fa-solid fa-laptop"></i><span>PEER B</span></div>
-                    </div>
-                </div>
-
-                <p><strong>Transfer Protocol:</strong> Peer-to-Peer Direct Transfer via WebRTC</p>
-                <div class="architecture-flow">
-                    <div class="flow-step">&gt; Step 1: Client A connects to FastAPI WebSocket Signaling Server</div>
-                    <div class="flow-step">&gt; Step 2: WebRTC Offer & SDP Handshake exchanged with Client B</div>
-                    <div class="flow-step">&gt; Step 3: Direct WebRTC DataChannel established between Peers</div>
-                    <div class="flow-step">&gt; Step 4: File sliced into 16KB ArrayBuffer chunks & transmitted directly</div>
-                </div>
-                <p class="neon-green"><strong>Engineering Advantage:</strong> Zero server bandwidth consumption during file transmission.</p>
+            <span class="eyebrow-tag">SYSTEM ARCHITECTURE</span>
+            <h3>P2P File Transfer Application</h3>
+            <div class="arch-steps">
+                <div class="arch-step"><strong>01. Signaling:</strong> Client A connects to FastAPI WebSocket signaling server.</div>
+                <div class="arch-step"><strong>02. Handshake:</strong> WebRTC SDP Offer & ICE candidates exchanged with Client B.</div>
+                <div class="arch-step"><strong>03. DataChannel:</strong> Direct encrypted peer-to-peer tunnel established.</div>
+                <div class="arch-step"><strong>04. Chunking:</strong> Files sliced into 16KB ArrayBuffer chunks with zero server storage.</div>
             </div>
         </div>
     </div>
 
     <div id="modal-vanguard" class="modal-overlay">
-        <div class="cyber-card modal-content">
+        <div class="modal-card">
             <button class="modal-close">&times;</button>
-            <h3>VANGUARD ARENA // BRACKET ENGINE MOCKUP</h3>
-            <div class="modal-body">
-                <div class="visual-preview-frame">
-                    <div class="preview-header">
-                        <span class="preview-tag">// ESPORTS_TOURNAMENT_ENGINE_UI</span>
-                    </div>
-                    <div class="preview-canvas bracket-canvas">
-                        <div class="bracket-team">TEAM ALPHA <span class="score">2</span></div>
-                        <div class="bracket-team winner">TEAM OMEGA <span class="score">3</span></div>
-                        <div class="bracket-trophy"><i class="fa-solid fa-trophy neon-cyan"></i></div>
-                    </div>
-                </div>
-
-                <p><strong>Tournament Engine:</strong> Bracket Automation & Ranking</p>
-                <div class="architecture-flow">
-                    <div class="flow-step">&gt; Step 1: Organizer creates tournament bracket & slot allocations</div>
-                    <div class="flow-step">&gt; Step 2: Player authentication & SQL team roster registration</div>
-                    <div class="flow-step">&gt; Step 3: Match results entry & auto-calculating score points algorithm</div>
-                    <div class="flow-step">&gt; Step 4: Dynamic DOM update of standings and knockout trees</div>
-                </div>
-                <p class="neon-cyan"><strong>Engineering Advantage:</strong> Relational integrity enforcement across multi-stage brackets.</p>
+            <span class="eyebrow-tag">SYSTEM ARCHITECTURE</span>
+            <h3>Vanguard Arena Tournament Engine</h3>
+            <div class="arch-steps">
+                <div class="arch-step"><strong>01. Seeding:</strong> Organizer configures knockout brackets and slot allocations.</div>
+                <div class="arch-step"><strong>02. Persistence:</strong> MySQL relational schema tracks rosters, matches, and scores.</div>
+                <div class="arch-step"><strong>03. Progression:</strong> Match result submission automatically advances winners.</div>
+                <div class="arch-step"><strong>04. Standings:</strong> Real-time leaderboard recalculation across active divisions.</div>
             </div>
         </div>
     </div>
 
     <div id="modal-vexa" class="modal-overlay">
-        <div class="cyber-card modal-content">
+        <div class="modal-card">
             <button class="modal-close">&times;</button>
-            <h3>V.E.X.A. AI // PIPELINE VISUALIZER</h3>
-            <div class="modal-body">
-                <div class="visual-preview-frame">
-                    <div class="preview-header">
-                        <span class="preview-tag">// NEURAL_VOICE_PIPELINE</span>
-                    </div>
-                    <div class="preview-canvas ai-canvas">
-                        <div class="pipeline-chip"><i class="fa-solid fa-microphone"></i> PyAudio</div>
-                        <i class="fa-solid fa-arrow-right neon-pink"></i>
-                        <div class="pipeline-chip"><i class="fa-solid fa-wave-square"></i> Whisper</div>
-                        <i class="fa-solid fa-arrow-right neon-pink"></i>
-                        <div class="pipeline-chip"><i class="fa-solid fa-brain"></i> Ollama</div>
-                        <i class="fa-solid fa-arrow-right neon-pink"></i>
-                        <div class="pipeline-chip"><i class="fa-solid fa-volume-high"></i> Edge-TTS</div>
-                    </div>
-                </div>
-
-                <p><strong>Pipeline Model:</strong> Offline Neural Voice Processing</p>
-                <div class="architecture-flow">
-                    <div class="flow-step">&gt; Step 1: Microphone input captured via PyAudio stream</div>
-                    <div class="flow-step">&gt; Step 2: Faster-Whisper transcribes speech audio locally</div>
-                    <div class="flow-step">&gt; Step 3: Ollama local LLM generates contextual response</div>
-                    <div class="flow-step">&gt; Step 4: Edge-TTS converts output text into neural speech audio</div>
-                </div>
-                <p class="neon-pink"><strong>Engineering Advantage:</strong> 100% local operation with zero cloud API latency.</p>
+            <span class="eyebrow-tag">SYSTEM ARCHITECTURE</span>
+            <h3>V.E.X.A. Offline AI Pipeline</h3>
+            <div class="arch-steps">
+                <div class="arch-step"><strong>01. Audio Capture:</strong> Low-latency microphone stream captured via PyAudio.</div>
+                <div class="arch-step"><strong>02. Speech-to-Text:</strong> Faster-Whisper transcribes voice commands locally.</div>
+                <div class="arch-step"><strong>03. Inference:</strong> Local Ollama LLM processes intent and executes system actions.</div>
+                <div class="arch-step"><strong>04. Voice Synthesis:</strong> Edge-TTS renders natural neural audio feedback.</div>
             </div>
         </div>
     </div>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2 class="section-title reveal"><span class="prompt-symbol">#</span> DISPATCH_<span class="neon-pink">MESSAGE</span></h2>
-        <p class="contact-sub reveal">Direct connection channel for software development & QA opportunities.</p>
-        
-        <div class="contact-layout">
-            <div class="contact-info">
-                <a href="mailto:racerprince4533@gmail.com" class="cyber-card contact-card reveal">
-                    <i class="fa-solid fa-envelope contact-icon"></i>
-                    <div>
-                        <span class="contact-label">EMAIL_ADDRESS</span>
-                        <span class="contact-value">racerprince4533@gmail.com</span>
-                    </div>
-                </a>
-                <a href="tel:+919566737688" class="cyber-card contact-card reveal">
-                    <i class="fa-solid fa-phone contact-icon"></i>
-                    <div>
-                        <span class="contact-label">PHONE_LINE</span>
-                        <span class="contact-value">+91 9566737688</span>
-                    </div>
-                </a>
-                <a href="https://linkedin.com/in/prince-samuvel-7841a02b0" target="_blank" class="cyber-card contact-card reveal">
-                    <i class="fa-brands fa-linkedin contact-icon"></i>
-                    <div>
-                        <span class="contact-label">LINKEDIN_PROFILE</span>
-                        <span class="contact-value">Prince Samuvel</span>
-                    </div>
-                </a>
-            </div>
-
-            <form action="https://formspree.io/f/xvgzorqy" method="POST" class="cyber-card contact-form reveal">
-                <h3>SEND TRANSMISSION</h3>
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="YOUR NAME" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="YOUR EMAIL" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" rows="5" placeholder="YOUR MESSAGE" required></textarea>
-                </div>
-                <button type="submit" class="btn cyber-btn primary full-width">TRANSMIT MESSAGE <i class="fa-solid fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 A. Prince Samuvel // Designed with Cyber-Brutalist Web Standards</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
