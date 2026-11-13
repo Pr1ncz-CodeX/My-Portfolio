@@ -43,55 +43,96 @@ body {
     transition: width 0.08s ease-out;
 }
 
-/* 2. Custom Crimson Ring Cursor (Desktop Only) */
+/* 2. Tactical Precision Crosshair Reticle Cursor (Desktop Only) */
 @media (pointer: fine) {
     body, a, button, .project-tile {
         cursor: none;
     }
 
-    .cursor-dot {
+    .cursor-reticle {
         position: fixed;
         top: 0;
         left: 0;
-        width: 6px;
-        height: 6px;
-        background: var(--crimson);
-        border-radius: 50%;
+        width: 28px;
+        height: 28px;
         pointer-events: none;
         z-index: 9999;
         transform: translate(-50%, -50%);
-        box-shadow: 0 0 10px var(--crimson);
+        transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                    height 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .cursor-ring {
-        position: fixed;
+    .reticle-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 4px;
+        height: 4px;
+        background: var(--crimson);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 10px var(--crimson), 0 0 20px var(--crimson);
+    }
+
+    .reticle-bracket {
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        border-color: rgba(255, 30, 56, 0.85);
+        border-style: solid;
+        transition: all 0.22s ease;
+    }
+
+    .top-left {
         top: 0;
         left: 0;
-        width: 34px;
-        height: 34px;
-        border: 1.5px solid rgba(255, 30, 56, 0.65);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9998;
-        transform: translate(-50%, -50%);
-        transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        border-width: 2px 0 0 2px;
     }
 
-    .cursor-ring.hover-active {
-        width: 54px;
-        height: 54px;
-        background: rgba(255, 30, 56, 0.12);
-        border-color: var(--crimson);
+    .top-right {
+        top: 0;
+        right: 0;
+        border-width: 2px 2px 0 0;
+    }
+
+    .bottom-left {
+        bottom: 0;
+        left: 0;
+        border-width: 0 0 2px 2px;
+    }
+
+    .bottom-right {
+        bottom: 0;
+        right: 0;
+        border-width: 0 2px 2px 0;
+    }
+
+    /* Target-Lock Expansion on Hover */
+    .cursor-reticle.target-locked {
+        width: 44px;
+        height: 44px;
+    }
+
+    .cursor-reticle.target-locked .reticle-bracket {
+        border-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        filter: drop-shadow(0 0 6px var(--crimson));
+    }
+
+    .cursor-reticle.target-locked .reticle-center {
+        background: #ffffff;
+        transform: translate(-50%, -50%) scale(1.4);
     }
 }
 
 @media (pointer: coarse) {
-    .cursor-dot, .cursor-ring {
+    .cursor-reticle {
         display: none;
     }
 }
 
-/* Floating Ember Canvas & Ambient Red Orbs */
+/* Floating Ember & Cursor Trail Canvas + Ambient Red Orbs */
 #ember-canvas {
     position: fixed;
     inset: 0;
@@ -138,7 +179,7 @@ body {
     color: var(--crimson);
 }
 
-/* 3. Interactive Tilt & Cursor Spotlight Card Effect */
+/* Interactive Tilt & Cursor Spotlight Card Effect */
 .tilt-card {
     position: relative;
     overflow: hidden;
@@ -226,7 +267,7 @@ body {
 .hero {
     min-height: 82vh;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1.05fr 0.95fr;
     align-items: center;
     gap: 40px;
     padding: 40px 8% 20px;
@@ -265,7 +306,6 @@ body {
     display: inline-block;
 }
 
-/* Subtle Hover Glitch Effect */
 .glitch-text:hover {
     animation: glitchSkew 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     text-shadow: 3px 0 #ff1e38, -3px 0 #00f0ff;
@@ -328,10 +368,10 @@ body {
     background: rgba(255, 30, 56, 0.1);
 }
 
-/* Hero Portrait & Rim Glow */
+/* Hero Cyber Command Center Visual */
 .hero-portrait-wrapper {
     position: relative;
-    max-width: 420px;
+    max-width: 450px;
     margin: 0 auto;
     border-radius: 20px;
     overflow: hidden;
@@ -339,8 +379,8 @@ body {
 
 .rim-glow {
     position: absolute;
-    inset: -10px;
-    background: radial-gradient(circle at 50% 35%, rgba(255, 30, 56, 0.65), transparent 68%);
+    inset: -12px;
+    background: radial-gradient(circle at 50% 45%, rgba(255, 30, 56, 0.65), transparent 70%);
     z-index: 0;
     pointer-events: none;
 }
@@ -349,19 +389,19 @@ body {
     width: 100%;
     height: 460px;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
     display: block;
     position: relative;
     z-index: 1;
     border-radius: 20px;
-    mask-image: radial-gradient(ellipse 75% 80% at 50% 45%, black 55%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 75% 80% at 50% 45%, black 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 82% at 50% 48%, black 58%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 82% at 50% 48%, black 58%, transparent 100%);
 }
 
 .portrait-fade {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, var(--bg-obsidian) 8%, transparent 45%);
+    background: linear-gradient(to top, var(--bg-obsidian) 6%, transparent 40%);
     z-index: 2;
     pointer-events: none;
 }
@@ -590,7 +630,7 @@ body {
     padding: 14px 14px 20px;
     border-radius: 12px;
     transform: rotate(3deg);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(255, 30, 56, 0.2);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(255, 30, 56, 0.25);
     transition: transform 0.35s ease;
 }
 
@@ -598,12 +638,25 @@ body {
     transform: rotate(0deg) scale(1.02);
 }
 
+.polaroid-img-wrap {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 .polaroid-frame img {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border-radius: 8px;
     display: block;
+    filter: contrast(1.2) saturate(1.1) hue-rotate(-145deg) brightness(0.88);
+}
+
+.polaroid-tint {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 35%, rgba(255, 30, 56, 0.28) 100%);
+    pointer-events: none;
 }
 
 .polaroid-caption {
@@ -839,7 +892,7 @@ body {
     color: var(--crimson);
 }
 
-/* 5. Crimson Toast Notification */
+/* Crimson Toast Notification */
 .crimson-toast {
     position: fixed;
     bottom: 28px;

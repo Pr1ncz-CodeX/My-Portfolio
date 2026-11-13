@@ -48,34 +48,54 @@ const handleScroll = () => {
 window.addEventListener('scroll', handleScroll);
 handleScroll();
 
-// 2. Custom Crimson Ring Cursor (Desktop)
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorRing = document.querySelector('.cursor-ring');
+// 2. Tactical Precision Reticle Cursor + Spark Trail (Desktop)
+const cursorReticle = document.querySelector('.cursor-reticle');
+const cursorSparks = [];
 
-if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
+if (cursorReticle && window.matchMedia('(pointer: fine)').matches) {
     let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
+    let reticleX = 0, reticleY = 0;
+    let isLocked = false;
+    let rotationAngle = 0;
 
     window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
-        cursorDot.style.left = `${mouseX}px`;
-        cursorDot.style.top = `${mouseY}px`;
+
+        // Spawn subtle glowing crimson spark trail on movement
+        if (Math.random() > 0.35) {
+            cursorSparks.push({
+                x: mouseX + (Math.random() - 0.5) * 6,
+                y: mouseY + (Math.random() - 0.5) * 6,
+                radius: Math.random() * 2 + 0.8,
+                alpha: 0.9,
+                vx: (Math.random() - 0.5) * 0.8,
+                vy: (Math.random() - 0.5) * 0.8
+            });
+        }
     });
 
-    const animateRing = () => {
-        ringX += (mouseX - ringX) * 0.18;
-        ringY += (mouseY - ringY) * 0.18;
-        cursorRing.style.left = `${ringX}px`;
-        cursorRing.style.top = `${ringY}px`;
-        requestAnimationFrame(animateRing);
+    const animateReticle = () => {
+        reticleX += (mouseX - reticleX) * 0.24;
+        reticleY += (mouseY - reticleY) * 0.24;
+
+        // Rotate smoothly when locked onto a target
+        rotationAngle = isLocked ? 45 : 0;
+        cursorReticle.style.transform = `translate(-50%, -50%) translate3d(${reticleX}px, ${reticleY}px, 0) rotate(${rotationAngle}deg)`;
+        requestAnimationFrame(animateReticle);
     };
-    animateRing();
+    animateReticle();
 
     const interactiveEls = document.querySelectorAll('a, button, .project-tile, input, textarea');
     interactiveEls.forEach(el => {
-        el.addEventListener('mouseenter', () => cursorRing.classList.add('hover-active'));
-        el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover-active'));
+        el.addEventListener('mouseenter', () => {
+            isLocked = true;
+            cursorReticle.classList.add('target-locked');
+        });
+        el.addEventListener('mouseleave', () => {
+            isLocked = false;
+            cursorReticle.classList.remove('target-locked');
+        });
     });
 }
 
@@ -230,7 +250,7 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
     });
 });
 
-// 9. Floating Crimson Ember Particles Canvas
+// 9. Floating Crimson Embers & Cursor Spark Trail Canvas
 const canvas = document.getElementById('ember-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -251,9 +271,10 @@ const embers = Array.from({ length: 55 }, () => ({
     alpha: Math.random() * 0.7 + 0.2
 }));
 
-function renderEmbers() {
+function renderCanvas() {
     ctx.clearRect(0, 0, width, height);
 
+    // Ambient floating embers
     embers.forEach(p => {
         p.y += p.speedY;
         p.x += p.speedX;
@@ -271,7 +292,28 @@ function renderEmbers() {
         ctx.fill();
     });
 
-    requestAnimationFrame(renderEmbers);
+    // Cursor spark trail
+    for (let i = cursorSparks.length - 1; i >= 0; i--) {
+        const s = cursorSparks[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        s.alpha -= 0.035;
+        s.radius *= 0.96;
+
+        if (s.alpha <= 0) {
+            cursorSparks.splice(i, 1);
+            continue;
+        }
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 60, 85, ${s.alpha})`;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#ff1e38';
+        ctx.fill();
+    }
+
+    requestAnimationFrame(renderCanvas);
 }
 
-renderEmbers();
+renderCanvas();

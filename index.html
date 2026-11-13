@@ -17,12 +17,17 @@
 </head>
 <body>
 
-    <!-- Top Scroll Progress Bar & Custom Cursor -->
+    <!-- Top Scroll Progress Bar & Tactical Reticle Cursor -->
     <div id="scroll-progress"></div>
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
+    <div class="cursor-reticle">
+        <span class="reticle-center"></span>
+        <span class="reticle-bracket top-left"></span>
+        <span class="reticle-bracket top-right"></span>
+        <span class="reticle-bracket bottom-left"></span>
+        <span class="reticle-bracket bottom-right"></span>
+    </div>
 
-    <!-- Floating Embers Canvas & Ambient Crimson Glows -->
+    <!-- Floating Embers & Cursor Trail Canvas + Ambient Crimson Glows -->
     <canvas id="ember-canvas"></canvas>
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
@@ -62,7 +67,7 @@
         <div class="hero-right reveal">
             <div class="hero-portrait-wrapper">
                 <div class="rim-glow"></div>
-                <img src="prince.jpg" alt="A. Prince Samuvel" class="hero-portrait">
+                <img src="hero-cyber.png" alt="Cyber Engineering Workstation" class="hero-portrait">
                 <div class="portrait-fade"></div>
             </div>
         </div>
@@ -167,7 +172,10 @@
 
             <div class="about-card-visual">
                 <div class="polaroid-frame">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Code Workspace">
+                    <div class="polaroid-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" alt="Crimson Code Architecture">
+                        <div class="polaroid-tint"></div>
+                    </div>
                     <div class="polaroid-caption">DEV & QA // TIRUNELVELI</div>
                 </div>
             </div>
