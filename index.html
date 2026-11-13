@@ -17,6 +17,11 @@
 </head>
 <body>
 
+    <!-- Top Scroll Progress Bar & Custom Cursor -->
+    <div id="scroll-progress"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
     <!-- Floating Embers Canvas & Ambient Crimson Glows -->
     <canvas id="ember-canvas"></canvas>
     <div class="ambient-orb orb-1"></div>
@@ -33,20 +38,22 @@
             <li><a href="#arsenal">ARSENAL</a></li>
             <li><a href="#contact">CONTACT</a></li>
         </ul>
-        <a href="#contact" class="nav-cta">LET'S TALK</a>
+        <a href="#contact" class="nav-cta magnetic-btn">LET'S TALK</a>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-left reveal">
-            <div class="eyebrow-tag">SOFTWARE DEVELOPER & QA AUTOMATION ENGINEER</div>
-            <h1 class="hero-name">PRINCE<span class="dot-accent">.</span></h1>
+            <div class="eyebrow-tag">
+                <span id="typewriter-role">SOFTWARE DEVELOPER</span><span class="type-cursor">|</span>
+            </div>
+            <h1 class="hero-name glitch-text" data-text="PRINCE.">PRINCE<span class="dot-accent">.</span></h1>
             <p class="hero-desc">
                 Final-year Computer Science undergraduate crafting resilient backend systems, WebRTC peer-to-peer protocols, and automated Selenium QA suites with precision.
             </p>
             <div class="hero-actions">
-                <a href="#projects" class="btn btn-primary">VIEW PROJECTS</a>
-                <a href="Prince_Resume_A4_Optimized.pdf" download="Prince_Samuvel_Resume.pdf" class="btn btn-outline">
+                <a href="#projects" class="btn btn-primary magnetic-btn">VIEW PROJECTS</a>
+                <a href="Prince_Resume_A4_Optimized.pdf" download="Prince_Samuvel_Resume.pdf" class="btn btn-outline magnetic-btn">
                     <i class="fa-solid fa-download"></i> DOWNLOAD CV
                 </a>
             </div>
@@ -55,8 +62,7 @@
         <div class="hero-right reveal">
             <div class="hero-portrait-wrapper">
                 <div class="rim-glow"></div>
-                <!-- Replace src with your own portrait image anytime (e.g., src="prince.png") -->
-                <img src="prince.jpg" alt="A. Prince Samuvel" class="hero-portrait">
+                <img src="prince.png" alt="A. Prince Samuvel" class="hero-portrait">
                 <div class="portrait-fade"></div>
             </div>
         </div>
@@ -64,15 +70,15 @@
 
     <!-- Animated Stats Bar -->
     <section class="stats-bar reveal">
-        <div class="stat-card">
+        <div class="stat-card tilt-card">
             <h2 class="stat-number" data-target="12">0+</h2>
             <p class="stat-label">SYSTEMS & REPOS BUILT</p>
         </div>
-        <div class="stat-card">
+        <div class="stat-card tilt-card">
             <h2 class="stat-number" data-target="98">0%</h2>
             <p class="stat-label">QA TEST PASS ACCURACY</p>
         </div>
-        <div class="stat-card">
+        <div class="stat-card tilt-card">
             <h2 class="stat-number" data-target="100">0%</h2>
             <p class="stat-label">ON-TIME DELIVERY</p>
         </div>
@@ -87,7 +93,7 @@
 
         <div class="projects-grid">
             <!-- Project 1 -->
-            <div class="project-tile reveal modal-trigger" data-modal="modal-p2p">
+            <div class="project-tile tilt-card reveal modal-trigger" data-modal="modal-p2p">
                 <div class="tile-banner banner-p2p">
                     <span class="tile-badge">WEBRTC // FASTAPI</span>
                     <i class="fa-solid fa-network-wired tile-bg-icon"></i>
@@ -101,7 +107,7 @@
             </div>
 
             <!-- Project 2 -->
-            <div class="project-tile reveal modal-trigger" data-modal="modal-vanguard">
+            <div class="project-tile tilt-card reveal modal-trigger" data-modal="modal-vanguard">
                 <div class="tile-banner banner-vanguard">
                     <span class="tile-badge">JAVA // MYSQL</span>
                     <i class="fa-solid fa-trophy tile-bg-icon"></i>
@@ -115,7 +121,7 @@
             </div>
 
             <!-- Project 3 -->
-            <div class="project-tile reveal modal-trigger" data-modal="modal-vexa">
+            <div class="project-tile tilt-card reveal modal-trigger" data-modal="modal-vexa">
                 <div class="tile-banner banner-vexa">
                     <span class="tile-badge">PYTHON // OLLAMA</span>
                     <i class="fa-solid fa-microchip tile-bg-icon"></i>
@@ -140,19 +146,19 @@
                 </p>
 
                 <div class="credentials-grid">
-                    <div class="cred-pill">
+                    <div class="cred-pill tilt-card">
                         <span class="cred-title">EXPERIENCE</span>
                         <span class="cred-val">QA Testing Intern @ Access Tech</span>
                     </div>
-                    <div class="cred-pill">
+                    <div class="cred-pill tilt-card">
                         <span class="cred-title">CERTIFICATION</span>
                         <span class="cred-val">OOP Fundamentals (NPTEL IIT Roorkee)</span>
                     </div>
-                    <div class="cred-pill">
+                    <div class="cred-pill tilt-card">
                         <span class="cred-title">CERTIFICATION</span>
                         <span class="cred-val">Typewriting English (DoTE Tamil Nadu)</span>
                     </div>
-                    <div class="cred-pill">
+                    <div class="cred-pill tilt-card">
                         <span class="cred-title">LOCATION</span>
                         <span class="cred-val">Tirunelveli, Tamil Nadu, India</span>
                     </div>
@@ -175,7 +181,7 @@
         </div>
 
         <div class="skills-rows reveal">
-            <div class="skill-row-card">
+            <div class="skill-row-card tilt-card">
                 <div class="skill-row-left">
                     <h3>Core Programming & Web</h3>
                     <p>Object-oriented architecture, backend APIs, and responsive frontend engineering.</p>
@@ -189,7 +195,7 @@
                 </div>
             </div>
 
-            <div class="skill-row-card">
+            <div class="skill-row-card tilt-card">
                 <div class="skill-row-left">
                     <h3>QA & Test Automation</h3>
                     <p>End-to-end automated browser testing, regression cycles, and defect tracking.</p>
@@ -203,7 +209,7 @@
                 </div>
             </div>
 
-            <div class="skill-row-card">
+            <div class="skill-row-card tilt-card">
                 <div class="skill-row-left">
                     <h3>Databases & Protocols</h3>
                     <p>Relational data modeling, real-time sockets, and peer-to-peer streaming.</p>
@@ -226,31 +232,31 @@
         </div>
 
         <div class="arsenal-dock reveal">
-            <div class="arsenal-item">
+            <div class="arsenal-item tilt-card">
                 <i class="fa-brands fa-java"></i>
                 <span>Java</span>
             </div>
-            <div class="arsenal-item">
+            <div class="arsenal-item tilt-card">
                 <i class="fa-solid fa-vial-circle-check"></i>
                 <span>Selenium</span>
             </div>
-            <div class="arsenal-item">
+            <div class="arsenal-item tilt-card">
                 <i class="fa-brands fa-python"></i>
                 <span>Python</span>
             </div>
-            <div class="arsenal-item">
+            <div class="arsenal-item tilt-card">
                 <i class="fa-brands fa-js"></i>
                 <span>JavaScript</span>
             </div>
-            <div class="arsenal-item">
+            <div class="arsenal-item tilt-card">
                 <i class="fa-solid fa-database"></i>
                 <span>MySQL</span>
             </div>
-            <div class="arsenal-item">
+            <div class="arsenal-item tilt-card">
                 <i class="fa-brands fa-git-alt"></i>
                 <span>Git</span>
             </div>
-            <div class="arsenal-item">
+            <div class="arsenal-item tilt-card">
                 <i class="fa-solid fa-code"></i>
                 <span>VS Code</span>
             </div>
@@ -277,8 +283,8 @@
                 <span class="wa-action">CHAT NOW <i class="fa-solid fa-arrow-right"></i></span>
             </a>
 
-            <!-- Contact Form -->
-            <form action="https://formspree.io/f/xvgzorqy" method="POST" class="cinematic-form">
+            <!-- Contact Form (AJAX Submit with Toast) -->
+            <form id="portfolio-contact-form" action="https://formspree.io/f/xvgzorqy" method="POST" class="cinematic-form">
                 <div class="form-row">
                     <div class="input-block">
                         <label>YOUR NAME</label>
@@ -293,7 +299,7 @@
                     <label>MESSAGE & ROLE / PROJECT SCOPE</label>
                     <textarea name="message" rows="4" placeholder="Let's build something impactful together..." required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                <button type="submit" id="submit-btn" class="btn btn-primary submit-btn magnetic-btn">Send Message</button>
             </form>
 
             <!-- Direct Social Links -->
@@ -308,6 +314,15 @@
     <footer>
         <p>&copy; 2026 A. PRINCE SAMUVEL. ALL RIGHTS RESERVED.</p>
     </footer>
+
+    <!-- Custom Crimson Toast Notification -->
+    <div id="toast-notification" class="crimson-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+            <strong>TRANSMISSION RECEIVED</strong>
+            <p id="toast-message">Your message has been dispatched to Prince.</p>
+        </div>
+    </div>
 
     <!-- System Architecture Modals -->
     <div id="modal-p2p" class="modal-overlay">
