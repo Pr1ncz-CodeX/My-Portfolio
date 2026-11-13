@@ -339,3 +339,32 @@ function renderCanvas() {
 }
 
 renderCanvas();
+
+// 10. Mobile Hamburger Drawer Menu
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileDrawer = document.getElementById('mobile-drawer');
+
+if (mobileMenuBtn && mobileDrawer) {
+    const closeMobileDrawer = () => {
+        mobileMenuBtn.classList.remove('open');
+        mobileDrawer.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = mobileDrawer.classList.toggle('open');
+        mobileMenuBtn.classList.toggle('open', isOpen);
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileDrawer.querySelectorAll('a, button').forEach(item => {
+        item.addEventListener('click', closeMobileDrawer);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!mobileDrawer.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            closeMobileDrawer();
+        }
+    });
+}

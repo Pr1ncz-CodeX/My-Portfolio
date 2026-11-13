@@ -65,7 +65,26 @@
             <li><a href="#arsenal">ARSENAL</a></li>
             <li><a href="#contact">CONTACT</a></li>
         </ul>
-        <a href="#contact" class="nav-cta magnetic-btn">LET'S TALK</a>
+        <div class="nav-right-actions">
+            <a href="#contact" class="nav-cta magnetic-btn">LET'S TALK</a>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Slide-Down Drawer -->
+        <div id="mobile-drawer" class="mobile-drawer">
+            <a href="#projects" class="mobile-nav-link">PROJECTS</a>
+            <a href="#about" class="mobile-nav-link">ABOUT</a>
+            <a href="#skills" class="mobile-nav-link">SKILLS</a>
+            <a href="#arsenal" class="mobile-nav-link">ARSENAL</a>
+            <a href="#contact" class="mobile-nav-link">CONTACT</a>
+            <button type="button" class="mobile-drawer-cv modal-trigger" data-modal="modal-resume">
+                <i class="fa-solid fa-eye"></i> PREVIEW RESUME
+            </button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
